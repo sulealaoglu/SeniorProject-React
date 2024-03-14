@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Pri } from "react-router-dom";
 import Login from "./pages/Login";
@@ -22,6 +23,20 @@ function App() {
         />
       </Routes>
     </>
+=======
+import logo from "./logo.svg";
+import "./App.css";
+import LoginForm from "./Components/LoginForm/LoginForm";
+import PndoForm from "./Components/PnoForm/PndoForm";
+import KpsoForm from "./Components/KpsoForm/KpsoForm";
+import TsgoForm from "./Components/TsgoForm/TsgoForm";
+import DasoForm from "./Components/DasoForm/DasoForm";
+function App() {
+  return (
+    <div className="App">
+      <DasoForm />
+    </div>
+>>>>>>> Stashed changes
   );
 }
 
