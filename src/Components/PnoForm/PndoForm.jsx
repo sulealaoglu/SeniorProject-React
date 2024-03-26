@@ -1,5 +1,5 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../../pages/style.css";
 
 const PndoTest = () => {
   // State tanımlamaları
@@ -38,7 +38,7 @@ const PndoTest = () => {
     "Dikkatli",
     "Tedirgin",
     "Aktif",
-    "Korkmuş"
+    "Korkmuş",
   ];
 
   return (
@@ -57,7 +57,7 @@ const PndoTest = () => {
         <tbody>
           {questions.map((question, index) => (
             <tr key={index}>
-              <td>{question}</td>
+              <td className="question">{question}</td>
               {[...Array(5)].map((_, value) => (
                 <td key={value}>
                   <input
@@ -78,4 +78,3 @@ const PndoTest = () => {
 };
 
 export default PndoTest;
-
