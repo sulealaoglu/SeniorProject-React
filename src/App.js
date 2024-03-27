@@ -6,10 +6,10 @@ import Register from "./Components/RegisterForm/RegisterForm.jsx";
 import Profile from "./pages/Profile";
 import DDVP from "./pages/Ddvp.js";
 import PrivateRoute from "./Components/PrivateRoute";
-import DasoForm from "./Components/DasoForm/DasoForm.jsx";
-import KpsoForm from "./Components/KpsoForm/KpsoForm.jsx";
-import TsgoForm from "./Components/TsgoForm/TsgoForm.jsx";
-import PndoForm from "./Components/PnoForm/PndoForm.jsx";
+import DasoForm from "./pages/Daso.js";
+import KpsoForm from "./pages/Kpso.js";
+import TsgoForm from "./pages/Tsgo.js";
+import PndoForm from "./pages/Pndo.js";
 function App() {
   return (
     <>

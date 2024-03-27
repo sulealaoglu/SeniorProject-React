@@ -1,22 +1,6 @@
 import React, { useState } from "react";
-import RadioTable from "../RadioTable";
-
-const DasoTest = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [answers, setAnswers] = useState(Array(21).fill(0));
-  const itemsPerPage = 7;
-
-  const handleAnswerChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value;
-    setAnswers(newAnswers);
-  };
-
-  const handleSubmit = () => {
-    console.log(answers);
-  };
-
-  // Sorular listesi
+import RadioTable from "../Components/RadioTable";
+export default function Daso() {
   const questions = [
     "1.Gevşeyip rahatlamakta zorluk çektim.",
     "2.Ağzımda kuruluk olduğunu fark ettim.",
@@ -41,17 +25,6 @@ const DasoTest = () => {
     "21.Hayatın anlamsız olduğu hissine kapıldım.",
   ];
 
-  const totalPages = Math.ceil(questions.length / itemsPerPage);
-
-  const startQuestionIndex = currentPage * itemsPerPage;
-  const endQuestionIndex = Math.min(
-    startQuestionIndex + itemsPerPage,
-    questions.length
-  );
-  const currentQuestions = questions.slice(
-    startQuestionIndex,
-    endQuestionIndex
-  );
   const headers = [
     "Soru",
     "Hiçbir zaman",
@@ -60,12 +33,11 @@ const DasoTest = () => {
     "Her zaman",
   ];
 
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
-  };
+  const [answers, setAnswers] = useState(Array(21).fill(0));
+  const itemsPerPage = 7;
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
+  const handleSubmit = () => {
+    console.log(answers);
   };
 
   return (
@@ -75,14 +47,9 @@ const DasoTest = () => {
         questions={questions} // Sorular
         answers={answers} // Cevaplar
         setAnswers={setAnswers} // Cevapları güncelleme işlevi
-        currentPage={currentPage} // Mevcut sayfa indeksi
         itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
-        onNextPage={handleNextPage} // Bir sonraki sayfaya gitme işlevi
-        onPrevPage={handlePrevPage} // Bir önceki sayfaya gitme işlevi
         onSubmit={handleSubmit}
       />
     </div>
   );
-};
-
-export default DasoTest;
+}

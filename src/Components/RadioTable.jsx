@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import "../pages/style.css";
 
 const RadioTable = ({
   headers,
   questions,
   answers,
   setAnswers,
-  currentPage,
   itemPerPage,
-  onNextPage,
-  onPrevPage,
   onSubmit,
 }) => {
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...answers];
     newAnswers[index] = value;
     setAnswers(newAnswers);
+  };
+  const [currentPage, setCurrentPage] = useState(0);
+  const startQuestionIndex = currentPage * itemPerPage;
+  const endQuestionIndex = Math.min(
+    startQuestionIndex + itemPerPage,
+    questions.length
+  );
+
+  const onNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
+  };
+
+  const onPrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
   };
   // Toplam sayfa sayısını hesapla
   const totalPages = Math.ceil(questions.length / itemPerPage);
@@ -42,7 +54,7 @@ const RadioTable = ({
         </thead>
         <tbody>
           {currentQuestions.map((question, index) => (
-            <tr key={index}>
+            <tr key={index} className="row">
               <td className="question">{question}</td>
               {headers.slice(1).map((_, headerIndex) => (
                 <td key={headerIndex}>
@@ -64,7 +76,7 @@ const RadioTable = ({
         <button onClick={onPrevPage} disabled={isSinglePage}>
           Geri
         </button>
-        <button onClick={onSubmit}>Cevapları Gönder</button>
+        <button onClick={onSubmit}>Tamamla</button>
         <button
           onClick={onNextPage}
           disabled={

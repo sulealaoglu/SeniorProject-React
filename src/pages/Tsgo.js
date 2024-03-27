@@ -1,22 +1,6 @@
 import React, { useState } from "react";
-import "../../pages/style.css";
-
-const TsgoTest = () => {
-  // State tanımlamaları
-  const [answers, setAnswers] = useState(Array(21).fill(0));
-
-  // Cevapları işleme fonksiyonu
-  const handleAnswerChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value;
-    setAnswers(newAnswers);
-  };
-
-  // Cevapları gönderme işlevi
-  const handleSubmit = () => {
-    console.log(answers);
-  };
-
+import RadioTable from "../Components/RadioTable";
+export default function Tsgo() {
   // Sorular listesi
   const questions = [
     "1.Hayatıma verdiğim değer arttı",
@@ -42,8 +26,17 @@ const TsgoTest = () => {
     "21.Başkalarına ihtiyacım olabileceğini öğrendim.",
   ];
 
+  const headers = ["Soru", "0", "1", "2", "3", "4", "5"];
+
+  const [answers, setAnswers] = useState(Array(21).fill(0));
+  const itemsPerPage = 7;
+
+  const handleSubmit = () => {
+    console.log(answers);
+  };
+
   return (
-    <div className="container">
+    <div>
       <div>
         <p>
           Aşağıda yaşadığınız stresten dolayı yaşamınızda olabilecek bazı
@@ -61,39 +54,16 @@ const TsgoTest = () => {
         </p>
         <p>5= Yaşadığım stresten dolayı aşırı derecede değişiklik yaşadım.</p>
       </div>
-      <table className="pndo-table">
-        <thead>
-          <tr>
-            <th>Soru</th>
-            <th>0</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-          </tr>
-        </thead>
-        <tbody>
-          {questions.map((question, index) => (
-            <tr key={index}>
-              <td className="question">{question}</td>
-              {[...Array(6)].map((_, value) => (
-                <td key={value}>
-                  <input
-                    type="radio"
-                    value={value + 1}
-                    checked={answers[index] === value + 1}
-                    onChange={() => handleAnswerChange(index, value + 1)}
-                  />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleSubmit}>Cevapları Gönder</button>
+      <div className="wrapper-scale">
+        <RadioTable
+          headers={headers} // Tablo başlıkları
+          questions={questions} // Sorular
+          answers={answers} // Cevaplar
+          setAnswers={setAnswers} // Cevapları güncelleme işlevi
+          itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
+          onSubmit={handleSubmit}
+        />
+      </div>
     </div>
   );
-};
-
-export default TsgoTest;
+}
