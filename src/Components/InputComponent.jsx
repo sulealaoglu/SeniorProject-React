@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const InputComponent = ({ onTextReceived }) => {
   const [dailyText, setDailyText] = useState("");
@@ -9,7 +10,20 @@ const InputComponent = ({ onTextReceived }) => {
 
   const handleSubmit = () => {
     console.log(dailyText);
-    onTextReceived(dailyText); // Girilen metni ana bileşene iletiyoruz
+    axios
+      .post(
+        "http://localhost:5000/sentiment",
+        { text: dailyText },
+        { headers: { "Content-Type": "text/plain" } }
+      )
+      .then((response) => {
+        console.log(response.data);
+        const result = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    onTextReceived(dailyText);
   };
 
   return (
