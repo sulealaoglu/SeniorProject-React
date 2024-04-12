@@ -10,6 +10,7 @@ import DasoForm from "./pages/Daso.js";
 import KpsoForm from "./pages/Kpso.js";
 import TsgoForm from "./pages/Tsgo.js";
 import PndoForm from "./pages/Pndo.js";
+import MoodCalendar from "./pages/MoodCalendar.js";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dasoform" element={<DasoForm />} />
         <Route path="/tsgoform" element={<TsgoForm />} />
         <Route path="/pndoform" element={<PndoForm />} />
+        <Route path="/Takvim" element={<MoodCalendar />} />
         <Route path="/DDVP" element={<DDVP />} />
         <Route
           path="/profile"
