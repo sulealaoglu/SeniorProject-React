@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Pri } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Register from "./Components/RegisterForm/RegisterForm.jsx";
+import Register from "./pages/Register.js";
 import Profile from "./pages/Profile";
 import DDVP from "./pages/Ddvp.js";
 import PrivateRoute from "./Components/PrivateRoute";

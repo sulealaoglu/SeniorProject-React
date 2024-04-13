@@ -5,10 +5,37 @@ import { FaLock } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import Popup from "react-popup";
+import ReactDom from "react-dom";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { useContext } from "react";
+
 export default function Login() {
+  // ReactDom.render(<Popup />, document.getElementById("popupContainer"));
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [apiUrl, setApiUrl] = useState("https://localhost:7199/api/Auth");
   const { user, setUser } = useAuth;
+
+  const [userData, setUserData] = useState({
+    userName: "",
+    email: "",
+    cellPhone: "",
+    userPassword: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    age: 0,
+    major: "",
+    studyYear: "",
+    city: "",
+    income: 0,
+    hasSickness: "",
+    isUsingMedicine: "",
+    progressLevel: "",
+  });
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
@@ -22,9 +49,27 @@ export default function Login() {
   const handleSubmit = (event) => {
     console.log("butona bastın");
     // // başarılı girişten sonra yönlendirme yap (api ile kontrol edilecek)
-    // setUser(username); //sisteme giriş yapılan kullanıcıyı tanımla
-    // //navigate("/home"); // ana sayfaya yönlendirme
-    navigate("/home");
+    const xhr = new XMLHttpRequest();
+    xhr.open(
+      "GET",
+      `${apiUrl}/login?username=${username}&password=${password}`,
+      false
+    ); // false => senkron istek
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          setUserData(data);
+          console.log(userData);
+          if (userData.progressLevel === 1 || userData.progressLevel === 4)
+            navigate("/dasoform");
+          else navigate("/ddvp");
+        } else {
+          console.error("Error fetching user data:", xhr.statusText);
+        }
+      }
+    };
+    xhr.send();
   };
 
   return (
