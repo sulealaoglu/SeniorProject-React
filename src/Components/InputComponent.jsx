@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const InputComponent = ({ onTextReceived }) => {
+const InputComponent = ({ onTextReceived, onSentimentResultReceived }) => {
   const [dailyText, setDailyText] = useState("");
 
   const handleInputChange = (event) => {
@@ -9,7 +9,6 @@ const InputComponent = ({ onTextReceived }) => {
   };
 
   const handleSubmit = () => {
-    console.log(dailyText);
     axios
       .post(
         "http://localhost:5000/sentiment",
@@ -17,8 +16,7 @@ const InputComponent = ({ onTextReceived }) => {
         { headers: { "Content-Type": "text/plain" } }
       )
       .then((response) => {
-        console.log(response.data);
-        const result = response.data;
+        onSentimentResultReceived(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -38,7 +36,6 @@ const InputComponent = ({ onTextReceived }) => {
         onChange={handleInputChange}
       />
       <br />
-
       <button onClick={handleSubmit}>Gönder</button>
     </div>
   );
