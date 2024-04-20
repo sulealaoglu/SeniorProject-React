@@ -3,7 +3,11 @@ export default function Register() {
   const [apiUrl, setApiUrl] = useState("https://localhost:7199/api/Auth");
   const [formData, setFormData] = useState({
     userName: "",
+    email: "",
+    cellphone: "",
     userPassword: "",
+    firstName: "",
+    lastName: "",
     age: "",
     gender: "",
     maritalStatus: "",
@@ -26,31 +30,7 @@ export default function Register() {
     }));
   };
 
-  // const handleSubmit1 = (event) => {
-  //   console.log("butona bastın");
-  //   // // başarılı girişten sonra yönlendirme yap (api ile kontrol edilecek)
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open(
-  //     "GET",
-  //     `${apiUrl}/login?username=${username}&password=${password}`,
-  //     false
-  //   ); // false => senkron istek
-  //   xhr.onreadystatechange = function () {
-  //     if (xhr.readyState === 4) {
-  //       if (xhr.status === 200) {
-  //         const data = JSON.parse(xhr.responseText);
-  //         setUserData(data);
-  //         console.log(userData);
-  //         if (userData.progressLevel === 1 || userData.progressLevel === 4)
-  //           navigate("/dasoform");
-  //         else navigate("/ddvp");
-  //       } else {
-  //         console.error("Error fetching user data:", xhr.statusText);
-  //       }
-  //     }
-  //   };
-  //   xhr.send();
-  // };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,7 +61,16 @@ export default function Register() {
           onChange={handleChange}
         />
       </div>
-
+      <div>
+        <label htmlFor="cellphone">Telefon Numarası:</label>
+        <input
+          type="number"
+          id="cellphone"
+          name="cellphone"
+          value={formData.cellphone}
+          onChange={handleChange}
+        />
+      </div>
       <div>
         <label htmlFor="password">Şifre:</label>
         <input
@@ -92,17 +81,38 @@ export default function Register() {
           onChange={handleChange}
         />
       </div>
-
       <div>
-        <label htmlFor="age">Yaşınız:</label>
+        <label htmlFor="firstName">Adınız:</label>
         <input
           type="text"
-          id="age"
-          name="age"
-          value={formData.age}
+          id="firstName"
+          name="firstName"
+          value={formData.firstName}
           onChange={handleChange}
         />
       </div>
+      <div>
+        <label htmlFor="lastName">Soyadınız:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+  <label htmlFor="age">Yaşınız:</label>
+  <input
+    type="number"
+    id="age"
+    name="age"
+    value={formData.age}
+    onChange={handleChange}
+    min="0"
+    step="1"
+  />
+</div>
       <div>
         <label htmlFor="gender">Cinsiyetiniz:</label>
         <select
@@ -133,24 +143,40 @@ export default function Register() {
         </select>
       </div>
       <div>
-        <label htmlFor="educationField">
-          Eğitim gördüğünüz bölümü yazınız:
+        <label htmlFor="educationLevel">
+        Eğitim gördüğünüz bölümü:
         </label>
-        <input
-          type="text"
+        <select
           id="educationField"
           name="educationField"
           value={formData.educationField}
           onChange={handleChange}
-        />
+        >
+          <option value="">Seçiniz</option>
+          
+          <option value="Arkeoloji">Arkeoloji</option>
+          <option value="Biyoloji">Biyoloji</option>
+          <option value="Diş Hekimliği">Diş Hekimliği</option>
+          <option value="Ekonometri">Ekonometri</option>
+          <option value="Fizik">Fizik</option>
+          <option value="Fizyoterapi ve Rehabilitasyon">Fizyoterapi ve Rehabilitasyon</option>
+          <option value="Hemşirelik">Hemşirelik</option>
+          <option value="Hukuk">Hukuk</option>
+          <option value="İşletme">İşletme</option>
+          <option value="Mühendislik">Mühendislik</option>
+          <option value="Öğretmenlik">Öğretmenlik</option>
+          <option value="Tıp">Tıp</option>
+          <option value="Yönetim Bilişim Sistemleri">Yönetim Bilişim Sistemleri</option>
+          <option value="Diğer">Diğer</option>
+        </select>
       </div>
       <div>
         <label htmlFor="educationLevel">
           Eğitim gördüğünüz sınıf düzeyini:
         </label>
         <select
-          id="educationField"
-          name="educationField"
+          id="educationLevel"
+          name="educationLevel"
           value={formData.educationLevel}
           onChange={handleChange}
         >
@@ -180,14 +206,23 @@ export default function Register() {
         </select>
       </div>
       <div>
-        <label htmlFor="monthlyIncome">AYLIK (bireysel) gelir düzeyiniz:</label>
-        <input
-          type="text"
+        <label htmlFor="monthlyIncome">
+        AYLIK (bireysel) gelir düzeyiniz:
+        </label>
+        <select
           id="monthlyIncome"
           name="monthlyIncome"
           value={formData.monthlyIncome}
           onChange={handleChange}
-        />
+        >
+          
+          <option value="">Seçiniz</option>
+          <option value="0-15.000">0-15.000</option>
+          <option value="15.001-30.000">15.001-30.000</option>
+          <option value="30.001-45.000">30.001-45.000</option>
+          <option value="45.001-60.000">45.001-60.000</option>
+          <option value="60.000+">60.000+</option>
+        </select>
       </div>
       <div>
         <label htmlFor="chronicCondition">

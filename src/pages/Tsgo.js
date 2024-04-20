@@ -16,10 +16,10 @@ export default function Tsgo() {
     "11.Hayatımı daha iyi şeyler yaparak geçirebileceğimi anladım.",
     "12.Olayları olduğu gibi kabullenmeyi öğrendim.",
     "13.Yaşadığım her günün değerini anladım.",
-    "14.Hastalığımdan sonra benim için yeni fırsatlar doğdu.",
+    "14.Yaşadığım stresten sonra benim için yeni fırsatlar doğdu.",
     "15.Başkalarına karşı şefkat hislerim arttı.",
     "16.İnsan ilişkilerimde Daha fazla gayret göstermeye başladım.",
-    "17. Değişmesi gereken şeyleri geliştirmek için Daha fazla gayret göstermeye başladım.",
+    "17. Değişmesi gereken şeyleri geliştirmek için daha fazla gayret göstermeye başladım.",
     "18.Dini inancım daha da güçlendi.",
     "19.Düşündüğümden daha güçlü olduğumu anladım",
     "20.İnsanların ne kadar iyi olduğu konusunda çok şey öğrendim.",
@@ -30,9 +30,14 @@ export default function Tsgo() {
 
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 7;
-
+  let totalscore = 0;
   const handleSubmit = () => {
+    for (let index = 0; index < answers.length; index++) {
+      totalscore = totalscore+ answers[index];
+      
+    }
     console.log(answers);
+    console.log (totalscore);
   };
 
   return (
