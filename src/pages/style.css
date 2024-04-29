@@ -176,7 +176,7 @@ code {
   cursor: pointer; /* Farklı bir imleç göster */
 }
 
-.table {
+/* .table {
   border-spacing: 0;
   text-align: left;
 }
@@ -191,6 +191,37 @@ code {
 .header {
   color: white;
   padding-right: 10px;
+} */
+.table {
+  border-spacing: 0;
+  text-align: left;
+  width: 100%; /* Tablonun genişliğini ayarla */
+  border-collapse: collapse; /* Kenarlıkları birleştir */
+}
+
+.question {
+  color: white;
+  font-weight: bold; /* font-style yerine font-weight kullanmalısın */
+  padding: 10px 0; /* Yukarı ve aşağı boşluklar ekle */
+}
+
+.header {
+  color: white;
+  padding: 10px; /* Tüm yönlere eşit iç boşluk ekle */
+  background-color: #333; /* Başlıklar için arka plan rengi */
+}
+
+th, td {
+  padding: 10px; /* Tüm hücrelere eşit iç boşluk ekle */
+  border: 1px solid #ddd; /* Hücre kenarlıkları */
+}
+
+th:first-child, td:first-child {
+  border-left: none; /* İlk sütunun sol kenarlığını kaldır */
+}
+
+th:last-child, td:last-child {
+  border-right: none; /* Son sütunun sağ kenarlığını kaldır */
 }
 
 .react-calendar {

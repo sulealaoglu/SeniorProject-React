@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import RadioTable from "../Components/RadioTable";
 export default function Tsgo() {
   // Sorular listesi
@@ -27,10 +27,18 @@ export default function Tsgo() {
   ];
 
   const headers = ["Soru", "0", "1", "2", "3", "4", "5"];
-
+  // const [allAnswered, setAllAnswered] = useState(false);
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 7;
   let totalscore = 0;
+
+//   useEffect(() => {
+//     // Tüm sorular yanıtlanmış mı kontrol et
+//     const answeredCount = answers.filter(answer => answer !== null && answer >= 0 && answer <= 5).length;
+//   const allQuestionsAnswered = answeredCount === answers.length;
+//   setAllAnswered(allQuestionsAnswered);
+// }, [answers]);
+
   const handleSubmit = () => {
     for (let index = 0; index < answers.length; index++) {
       totalscore = totalscore+ answers[index];
@@ -67,6 +75,7 @@ export default function Tsgo() {
           setAnswers={setAnswers} // Cevapları güncelleme işlevi
           itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
           onSubmit={handleSubmit}
+          // disabled={!allAnswered} // İleri butonunu devre dışı bırakma kontrolü
         />
       </div>
     </div>
