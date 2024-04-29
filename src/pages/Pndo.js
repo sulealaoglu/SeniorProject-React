@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import RadioTable from "../Components/RadioTable";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Pndo() {
   const questions = [
     "İlgili",
@@ -25,7 +27,7 @@ export default function Pndo() {
   ];
 
   const headers = ["Soru", "Hiç", "Çok az", "Orta düzeyde", "Sıklıkla", "Çok"];
-
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 10;
   let negative = 0;
@@ -37,6 +39,7 @@ export default function Pndo() {
     console.log(answers);
     console.log ("pozitif"+pozitive);
     console.log ("negatif"+negative);
+    navigate("/dasoform");
   };
 
   return (

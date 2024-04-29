@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import RadioTable from "../Components/RadioTable";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Daso() {
   const questions = [
     "1.Gevşeyip rahatlamakta zorluk çektim.",
@@ -26,13 +28,13 @@ export default function Daso() {
   ];
 
   const headers = [
-    "Soru",
+    "Son 10 gündeki durumunuz (özellikle son 1 hafta)",
     "Hiçbir zaman",
     "Bazen ve ara sıra",
     "Oldukça sık",
     "Her zaman",
   ];
-
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 7;
  let stres;
@@ -46,6 +48,7 @@ export default function Daso() {
     console.log("stres"+ stres);
     console.log("depresyon"+ depression);
     console.log("anksiyete"+ anxiety);
+    navigate("/kpsoform");
   };
 
   return (

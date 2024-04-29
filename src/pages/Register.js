@@ -41,7 +41,8 @@ export default function Register() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div  className="wrapper-scale">
+      <div >
         <label htmlFor="userName">Kullanıcı Adı:</label>
         <input
           type="text"
@@ -321,7 +322,8 @@ export default function Register() {
           <option value="Evet">Evet</option>
         </select>
       </div>
-      <button type="submit">Kaydet</button>
+      <button className=".wrapper button" type="submit">Kaydet</button>
+      </div>
     </form>
   );
 }

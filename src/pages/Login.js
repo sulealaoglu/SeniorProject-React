@@ -62,8 +62,8 @@ export default function Login() {
           setUserData(data);
           console.log(userData);
           if (userData.progressLevel === 1 || userData.progressLevel === 4)
-            navigate("/dasoform");
-          else navigate("/ddvp");
+            navigate("/pndoform");
+          // else navigate("/ddvp");
         } else {
           console.error("Error fetching user data:", xhr.statusText);
         }

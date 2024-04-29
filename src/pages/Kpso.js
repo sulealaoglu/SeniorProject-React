@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import RadioTable from "../Components/RadioTable";
 export default function Kpso() {
   const questions = [
@@ -10,7 +12,7 @@ export default function Kpso() {
     "Hayatımdaki olumsuzlukların etkisinden kurtulmam uzun zaman alır.",
   ];
   const headers = ["Soru", "Hiç", "Çok az", "Orta düzeyde", "Sıklıkla", "Çok"];
-
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 6;
   let totalscore = 0;
@@ -18,6 +20,7 @@ export default function Kpso() {
     totalscore = answers[0]-answers[1]+answers[2]-answers[3]+answers[4]-answers[5];
     console.log(answers);
     console.log ("total score"+ totalscore);
+    navigate("/tsgoform");
   };
 
   return (

@@ -344,3 +344,15 @@ th:last-child, td:last-child {
 .react-calendar__month-view__days button.react-calendar__tile--hasActive {
   background: #e5e5e5;
 }
+
+.description-box {
+  width: 700px;
+  margin: 20px auto; /* Center the box and provide some margin around it */
+  background: rgba(255, 255, 255, 0.15); /* Semi-transparent white background */
+  color: #fff; /* White text color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  backdrop-filter: blur(20px); /* Soft blur effect on background */
+}
+

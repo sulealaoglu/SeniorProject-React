@@ -49,8 +49,8 @@ export default function Tsgo() {
   };
 
   return (
-    <div>
-      <div>
+    <div >
+      <div className="description-box">
         <p>
           Aşağıda yaşadığınız stresten dolayı yaşamınızda olabilecek bazı
           değişiklikler verilmektedir. Her cümleyi dikkatle okuyunuz ve
