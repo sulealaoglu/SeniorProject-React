@@ -11,10 +11,24 @@ const RadioTable = ({
 }) => {
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...answers];
+    const allComplate = true;
     newAnswers[index] = value;
     setAnswers(newAnswers);
+    // Tüm cevapların kontrolünü sağla
+    // const allQuestionsAnswered = newAnswers.array.forEach((element) => {
+    //   if (element == 0) {
+    //     allComplate = false;
+    //   }
+    // });
+    // Tüm cevapların kontrolünü sağla
+    // const allQuestionsAnswered = updatedAnswers.every(
+    //   (answer) => answer !== undefined && answer !== 0
+    // );
+    // if (allComplate)
+    // setisCompleted(allQuestionsAnswered);
   };
   const [currentPage, setCurrentPage] = useState(0);
+  const [isCompleted, setisCompleted] = useState(false);
   const startQuestionIndex = currentPage * itemPerPage;
   const endQuestionIndex = Math.min(
     startQuestionIndex + itemPerPage,
@@ -76,7 +90,9 @@ const RadioTable = ({
         <button onClick={onPrevPage} disabled={isSinglePage}>
           Geri
         </button>
-        <button onClick={onSubmit}>Tamamla</button>
+        <button disabled={isCompleted} onClick={onSubmit}>
+          Tamamla
+        </button>
         <button
           onClick={onNextPage}
           disabled={

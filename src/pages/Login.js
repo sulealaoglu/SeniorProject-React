@@ -16,7 +16,7 @@ export default function Login() {
   // ReactDom.render(<Popup />, document.getElementById("popupContainer"));
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [apiUrl, setApiUrl] = useState("https://localhost:7199/api/Auth");
+  const [apiUrl, setApiUrl] = useState("http://localhost:5285/api/account");
   const { user, setUser } = useAuth;
 
   const [userData, setUserData] = useState({
@@ -50,11 +50,8 @@ export default function Login() {
     console.log("butona bastın");
     // // başarılı girişten sonra yönlendirme yap (api ile kontrol edilecek)
     const xhr = new XMLHttpRequest();
-    xhr.open(
-      "GET",
-      `${apiUrl}/login?username=${username}&password=${password}`,
-      false
-    ); // false => senkron istek
+    xhr.open("POST", `${apiUrl}/login`, false); // true => asenkron istek
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -63,13 +60,19 @@ export default function Login() {
           console.log(userData);
           if (userData.progressLevel === 1 || userData.progressLevel === 4)
             navigate("/pndoform");
-          // else navigate("/ddvp");
+          else navigate("/ddvp");
         } else {
           console.error("Error fetching user data:", xhr.statusText);
         }
       }
     };
-    xhr.send();
+
+    const requestBody = JSON.stringify({
+      userMail: username,
+      password: password,
+    });
+
+    xhr.send(requestBody);
   };
 
   return (
