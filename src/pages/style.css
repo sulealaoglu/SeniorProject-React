@@ -248,6 +248,16 @@ th:last-child, td:last-child {
   filter: blur(25px);
   z-index: -1;
 }
+.mood-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 1000;
+}
 
 .react-calendar {
   width: 100%;
