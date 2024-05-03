@@ -11,6 +11,7 @@ import ReactDom from "react-dom";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useContext } from "react";
+import videoBg from "../Components/Assests/login.mp4";
 
 export default function Login() {
   // ReactDom.render(<Popup />, document.getElementById("popupContainer"));
@@ -77,48 +78,52 @@ export default function Login() {
 
   return (
     <>
-      <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <h1>{user}</h1>
-            <h1>Giriş Yap</h1>
-            <div className="input-box">
-              <input
-                type="text"
-                placeholder="Kullanıcı Adı"
-                required
-                value={username}
-                onChange={handleUsernameChange}
-              />
-              <FaUser className="icon" />
-            </div>
-            <div className="input-box">
-              <input
-                type="password"
-                placeholder="Şifre"
-                required
-                value={password}
-                onChange={handlePasswordChange}
-              />
-              <FaLock className="icon" />
-            </div>
+      <div className="overlay"></div>
+      <video src={videoBg} autoPlay loop muted />
+      <div className="content">
+        <div className="wrapper">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <h1>{user}</h1>
+              <h1>Giriş Yap</h1>
+              <div className="input-box">
+                <input
+                  type="text"
+                  placeholder="Kullanıcı Adı"
+                  required
+                  value={username}
+                  onChange={handleUsernameChange}
+                />
+                <FaUser className="icon" />
+              </div>
+              <div className="input-box">
+                <input
+                  type="password"
+                  placeholder="Şifre"
+                  required
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <FaLock className="icon" />
+              </div>
 
-            <div className="remember-forgot">
-              <a href="#">Şifremi Unuttum</a>
-            </div>
+              <div className="remember-forgot">
+                <a href="#">Şifremi Unuttum</a>
+              </div>
 
-            <button type="submit">Giriş Yap</button>
+              <button type="submit">Giriş Yap</button>
 
-            <div className="register-link">
-              <p>
-                Hesabınız yok mu?{" "}
-                <NavLink className="nav-link" to="/register">
-                  Kayıt Ol
-                </NavLink>
-              </p>
+              <div className="register-link">
+                <p>
+                  Hesabınız yok mu?{" "}
+                  <NavLink className="nav-link" to="/register">
+                    Kayıt Ol
+                  </NavLink>
+                </p>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

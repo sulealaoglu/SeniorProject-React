@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import MoodPicker from "../Components/MoodPicker.jsx";
 import moment from "moment";
+import videoBg from "../Components/Assests/blossom.mp4";
 import happyImage from "../Components/Assests/happyy.png"; // Make sure the path is correct
 import neutralImage from "../Components/Assests/notr.png"; // Make sure the path is correct
 import sadImage from "../Components/Assests/sad.png"; // Make sure the path is correct
@@ -30,39 +31,46 @@ const MoodCalendar = () => {
   const currentMonth = new Date().getMonth() + 1; // Adjust month index for function
 
   return (
-    <div className="calendar">
-      {new Array(new Date(currentYear, currentMonth, 0).getDate())
-        .fill(null)
-        .map((_, i) => (
-          <div
-            key={i + 1}
-            className="day"
-            onClick={() => handleDayClick(i + 1)}
-            style={{
-              backgroundImage: `url(${moods[i + 1]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {i + 1} {/* Day number displayed in the center of the circle */}
-          </div>
-        ))}
-      {selectedDay && (
-        <div className="mood-selector">
-          {moodOptions.map((mood) => (
-            <button
-              key={mood.label}
-              onClick={() => handleMoodClick(mood.image)}
-              style={{
-                backgroundImage: `url(${mood.image})`,
-                backgroundSize: "cover",
-              }}
-            >
-              {/* Intentionally left blank to only show the image */}
-            </button>
-          ))}
+    <div>
+      <div className="overlay"></div>
+      <video src={videoBg} autoPlay loop muted />
+      <div className="content">
+        <h1>APRIL</h1>
+        <div className="calendar">
+          {new Array(new Date(currentYear, currentMonth, 0).getDate())
+            .fill(null)
+            .map((_, i) => (
+              <div
+                key={i + 1}
+                className="day"
+                onClick={() => handleDayClick(i + 1)}
+                style={{
+                  backgroundImage: `url(${moods[i + 1]})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {i + 1} {/* Day number displayed in the center of the circle */}
+              </div>
+            ))}
+          {selectedDay && (
+            <div className="mood-selector">
+              {moodOptions.map((mood) => (
+                <button
+                  key={mood.label}
+                  onClick={() => handleMoodClick(mood.image)}
+                  style={{
+                    backgroundImage: `url(${mood.image})`,
+                    backgroundSize: "cover",
+                  }}
+                >
+                  {/* Intentionally left blank to only show the image */}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
