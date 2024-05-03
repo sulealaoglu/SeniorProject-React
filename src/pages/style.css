@@ -211,16 +211,19 @@ code {
   background-color: #333; /* Başlıklar için arka plan rengi */
 }
 
-th, td {
+th,
+td {
   padding: 10px; /* Tüm hücrelere eşit iç boşluk ekle */
   border: 1px solid #ddd; /* Hücre kenarlıkları */
 }
 
-th:first-child, td:first-child {
+th:first-child,
+td:first-child {
   border-left: none; /* İlk sütunun sol kenarlığını kaldır */
 }
 
-th:last-child, td:last-child {
+th:last-child,
+td:last-child {
   border-right: none; /* Son sütunun sağ kenarlığını kaldır */
 }
 
@@ -356,3 +359,120 @@ th:last-child, td:last-child {
   backdrop-filter: blur(20px); /* Soft blur effect on background */
 }
 
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+  gap: 10px; /* Space between days */
+  padding: 20px;
+  justify-content: center; /* Center the grid horizontally */
+}
+
+.mood-selector button:hover {
+  opacity: 0.8; /* Slight fade for visual feedback on hover */
+}
+.day {
+  width: 50px; /* Diameter of the circle */
+  height: 50px; /* Diameter of the circle */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  cursor: pointer;
+  border-radius: 50%; /* Round shape */
+  background-color: #f0f0f0; /* Light grey background for unselected days */
+  color: #333; /* Dark color for the day number for better contrast */
+  font-size: 16px; /* Adequate size to be easily readable */
+  font-weight: bold; /* Make the numbers stand out */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.day:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Mood Selector Popup Styling */
+.mood-selector {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff; /* White background for the popup */
+  border: 2px solid #000000; /* Black border */
+  border-radius: 8px; /* Rounded corners for the popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for popup */
+  z-index: 10;
+}
+
+.mood-selector button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Circle shape */
+  border: none;
+  margin: 5px;
+  background-size: cover; /* Ensure the mood images cover the button area */
+  background-position: center; /* Center the mood images */
+}
+
+/* Mood Buttons Styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px; /* Larger font size for better readability */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners for buttons */
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.8; /* Slight fade effect on hover */
+}
+
+/* Specific colors for each mood */
+.happy {
+  background-color: #4caf50; /* Green */
+}
+
+.unhappy {
+  background-color: #c46159; /* Red */
+}
+
+.neutral {
+  background-color: #ffeb3b; /* Yellow */
+}
+
+.day,
+button {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mood-selector button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin: 5px;
+}
+
+.day {
+  width: 50px; /* Set the width equal to the height for a perfect circle */
+  height: 50px; /* Match the size of the mood buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%; /* Makes the divs into circles */
+  background-color: #f0f0f0; /* Light grey background for days without a mood */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+.day:hover {
+  transform: scale(1.1); /* Slightly enlarge day on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better interaction feedback */
+}
