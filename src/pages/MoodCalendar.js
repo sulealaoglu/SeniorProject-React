@@ -3,80 +3,67 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import MoodPicker from "../Components/MoodPicker.jsx";
 import moment from "moment";
-
+import happyImage from "../Components/Assests/happyy.png"; // Make sure the path is correct
+import neutralImage from "../Components/Assests/notr.png"; // Make sure the path is correct
+import sadImage from "../Components/Assests/sad.png"; // Make sure the path is correct
+import happinessImage from "../Components/Assests/happiness.png"; // Ensure the path is correct
 const MoodCalendar = () => {
-  const [date, setDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [mood, setMood] = useState(null);
-  const [tileMap, setTileMap] = useState(new Map());
-  const [showMoodPicker, setShowMoodPicker] = useState(false);
-
-  const handleDateChange = (newDate) => {
-    setDate(newDate);
-    setSelectedDate(newDate);
-    setMood(null);
-    setTileMap(new Map());
-  };
+  const [moods, setMoods] = useState({});
+  const [selectedDay, setSelectedDay] = useState(null);
 
   const handleDayClick = (day) => {
-    setSelectedDate(day);
-    setMood(null);
-    setShowMoodPicker(true);
+    setSelectedDay(day);
   };
 
-  const handleMoodSelect = (mood) => {
-    setMood(mood);
-    setTileMap(new Map(tileMap.set(selectedDate, mood)));
-    setShowMoodPicker(false);
+  const handleMoodClick = (mood) => {
+    setMoods({ ...moods, [selectedDay]: mood });
+    setSelectedDay(null); // Close the mood selector
   };
 
-  const tileContent = ({ date, view }) => {
-    if (view === "month" && tileMap.has(date)) {
-      const moodStyle = {
-        backgroundColor: MOOD_COLORS[tileMap.get(date)],
-        color: "white",
-        borderRadius: "50%",
-        width: "35px",
-        height: "35px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        boxShadow: "0 0 2px rgba(0, 0, 0, 0.2)",
-      };
-      return <div style={moodStyle}>{MOODS[tileMap.get(date)]}</div>;
-    }
-  };
+  const moodOptions = [
+    { label: "happy", image: happyImage },
+    { label: "neutral", image: neutralImage },
+    { label: "sad", image: sadImage },
+  ];
 
-  const MOODS = ["happy", "sad", "angry", "calm", "excited"];
-  const MOOD_COLORS = {
-    happy: "green",
-    sad: "blue",
-    angry: "red",
-    calm: "yellow",
-    excited: "purple",
-  };
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1; // Adjust month index for function
 
   return (
-    <div className="calendar-container">
-      <Calendar
-        value={date}
-        onClickDay={handleDayClick}
-        tileContent={tileContent}
-      />
-      {showMoodPicker && (
-        <div className="mood-picker-container">
-          <div className="mood-picker">
-            <h2>Select a mood for {selectedDate.toLocaleDateString()}</h2>
-            {MOODS.map((mood, index) => (
-              <button key={index} onClick={() => handleMoodSelect(index)}>
-                {mood}
-              </button>
-            ))}
+    <div className="calendar">
+      {new Array(new Date(currentYear, currentMonth, 0).getDate())
+        .fill(null)
+        .map((_, i) => (
+          <div
+            key={i + 1}
+            className="day"
+            onClick={() => handleDayClick(i + 1)}
+            style={{
+              backgroundImage: `url(${moods[i + 1]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {i + 1} {/* Day number displayed in the center of the circle */}
           </div>
+        ))}
+      {selectedDay && (
+        <div className="mood-selector">
+          {moodOptions.map((mood) => (
+            <button
+              key={mood.label}
+              onClick={() => handleMoodClick(mood.image)}
+              style={{
+                backgroundImage: `url(${mood.image})`,
+                backgroundSize: "cover",
+              }}
+            >
+              {/* Intentionally left blank to only show the image */}
+            </button>
+          ))}
         </div>
       )}
     </div>
   );
 };
-
 export default MoodCalendar;
