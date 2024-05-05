@@ -367,18 +367,54 @@ td:last-child {
   gap: 10px; /* Space between days */
   padding: 20px;
   justify-content: center; /* Center the grid horizontally */
-  width: 480px;
+  width: 420px;
   background: transparent;
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(30px);
   border-radius: 10px;
   padding: 30px 40px;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  height: 400px;
+}
+.month-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  width: 40px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.month-name-container {
+  flex: 1;
+  width: 350px;
+  text-align: center;
+}
+
+.month-name {
+  font-size: 20px;
+  background: transparent;
+  width: 350px;
+
+  text-decoration: #000000;
 }
 
 .mood-selector button:hover {
   opacity: 0.8; /* Slight fade for visual feedback on hover */
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
 }
 .day {
   width: 50px; /* Diameter of the circle */
@@ -586,3 +622,107 @@ video {
 }
 
 
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-date {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.home-app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Navbar.css */
+.navbar {
+  width: 200px;
+  background-color: #4f4c6b;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 15px 0;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+}
+
+.navbar li:hover {
+  text-decoration: underline;
+}
+
+/* BlogSlider.css */
+.slider {
+  position: relative;
+  width: 60%;
+  margin-top: 20px;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* MotivationalSentence.css */
+.motivational {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.motivational-image {
+  width: 50%;
+  margin-top: 10px;
+}

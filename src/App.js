@@ -23,6 +23,7 @@ function App() {
         <Route path="/pndoform" element={<PndoForm />} />
         <Route path="/Takvim" element={<MoodCalendar />} />
         <Route path="/DDVP" element={<DDVP />} />
+        <Route path="/Home" element={<Home />} />
         <Route
           path="/profile"
           element={

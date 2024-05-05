@@ -1,34 +1,66 @@
 import React, { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import MoodPicker from "../Components/MoodPicker.jsx";
 import moment from "moment";
 import videoBg from "../Components/Assests/blossom.mp4";
-import happyImage from "../Components/Assests/happyy.png"; // Make sure the path is correct
-import neutralImage from "../Components/Assests/notr.png"; // Make sure the path is correct
-import sadImage from "../Components/Assests/sad.png"; // Make sure the path is correct
-import happinessImage from "../Components/Assests/happiness.png"; // Ensure the path is correct
+import veryHappyImage from "../Components/Assests/emotions/very_happy.png";
+import happyImage from "../Components/Assests/emotions/happy.png";
+import neutralImage from "../Components/Assests/emotions/neutral.png";
+import sadImage from "../Components/Assests/emotions/sad.png";
+import verySadImage from "../Components/Assests/emotions/very_sad.png";
+
 const MoodCalendar = () => {
   const [moods, setMoods] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
   const handleDayClick = (day) => {
-    setSelectedDay(day);
+    setSelectedDay(moment(currentDate).date(day).toDate());
   };
 
   const handleMoodClick = (mood) => {
     setMoods({ ...moods, [selectedDay]: mood });
-    setSelectedDay(null); // Close the mood selector
+    setSelectedDay(null);
   };
 
   const moodOptions = [
+    { label: "very_happy", image: veryHappyImage },
     { label: "happy", image: happyImage },
     { label: "neutral", image: neutralImage },
     { label: "sad", image: sadImage },
+    { label: "very_sad", image: verySadImage },
   ];
 
-  const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1; // Adjust month index for function
+  const monthName = moment(currentDate).format("MMMM");
+  const year = moment(currentDate).year();
+  const daysInMonth = moment(currentDate).daysInMonth();
+  const days = [];
+
+  // Fill in the days of the month
+  for (let day = 1; day <= daysInMonth; day++) {
+    days.push(
+      <div
+        key={day}
+        className="day"
+        onClick={() => handleDayClick(day)}
+        style={{
+          backgroundImage: `url(${
+            moods[moment(currentDate).date(day).toDate()]
+          })`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {day}
+      </div>
+    );
+  }
+
+  const nextMonth = () => {
+    setCurrentDate(moment(currentDate).add(1, "months").toDate());
+  };
+
+  const prevMonth = () => {
+    setCurrentDate(moment(currentDate).subtract(1, "months").toDate());
+  };
 
   return (
     <div>
@@ -36,24 +68,40 @@ const MoodCalendar = () => {
       <video src={videoBg} autoPlay loop muted />
 
       <div className="content">
-        <h1>MAY</h1>
+        <div className="calendar-header">
+          <button className="month-button" onClick={prevMonth}>
+            &laquo;
+          </button>
+          <div className="month-name-container">
+            <button className="month-name">{`${monthName} ${year}`}</button>
+          </div>
+          <button className="month-button" onClick={nextMonth}>
+            &raquo;
+          </button>
+        </div>
+
         <div className="calendar">
-          {new Array(new Date(currentYear, currentMonth, 0).getDate())
-            .fill(null)
-            .map((_, i) => (
-              <div
-                key={i + 1}
-                className="day"
-                onClick={() => handleDayClick(i + 1)}
-                style={{
-                  backgroundImage: `url(${moods[i + 1]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                {i + 1} {/* Day number displayed in the center of the circle */}
-              </div>
-            ))}
+          {days.map((day, index) => (
+            <div
+              key={index}
+              className="day"
+              onClick={() => handleDayClick(index + 1)}
+              style={{
+                backgroundImage: `url(${
+                  moods[
+                    moment(currentDate)
+                      .date(index + 1)
+                      .toDate()
+                  ]
+                })`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {index + 1}
+            </div>
+          ))}
+
           {selectedDay && (
             <div className="mood-selector">
               {moodOptions.map((mood) => (
