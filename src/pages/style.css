@@ -367,6 +367,14 @@ td:last-child {
   gap: 10px; /* Space between days */
   padding: 20px;
   justify-content: center; /* Center the grid horizontally */
+  width: 480px;
+  background: transparent;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 30px 40px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .mood-selector button:hover {
