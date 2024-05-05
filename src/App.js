@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Pri } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Register from "./pages/Register.js";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile.js";
 import DDVP from "./pages/Ddvp.js";
 import PrivateRoute from "./Components/PrivateRoute";
 import DasoForm from "./pages/Daso.js";
@@ -24,14 +24,14 @@ function App() {
         <Route path="/Takvim" element={<MoodCalendar />} />
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Home" element={<Home />} />
-        <Route
-          path="/profile"
-          element={
+        <Route path="/Profile" element={<Profile />} />
+        
+        {/* <Route path="/profile" element={
             <PrivateRoute>
               <Profile />
             </PrivateRoute>
           }
-        />
+        />  */}
       </Routes>
     </>
   );
