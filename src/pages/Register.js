@@ -43,8 +43,16 @@ export default function Register() {
     // Check if all fields are filled
     for (const key in formData) {
       // For conditional inputs, check only if the corresponding condition is true
-      if (key === "ChronicConditionName" && formData.chronicCondition !== "Evet") continue;
-      if (key === "medicationForPsychologicalCondition" && formData.psychologicalCondition !== "Evet") continue;
+      if (
+        key === "ChronicConditionName" &&
+        formData.chronicCondition !== "Evet"
+      )
+        continue;
+      if (
+        key === "medicationForPsychologicalCondition" &&
+        formData.psychologicalCondition !== "Evet"
+      )
+        continue;
 
       if (formData[key] === "") {
         return false;
@@ -163,7 +171,9 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="educationField">Eğitim gördüğünüz bölümü:</label>
+                <label htmlFor="educationField">
+                  Eğitim gördüğünüz bölümü:
+                </label>
                 <select
                   id="educationField"
                   name="educationField"
@@ -176,21 +186,27 @@ export default function Register() {
                   <option value="Diş Hekimliği">Diş Hekimliği</option>
                   <option value="Ekonometri">Ekonometri</option>
                   <option value="Fizik">Fizik</option>
-                  <option value="Fizyoterapi ve Rehabilitasyon">Fizyoterapi ve Rehabilitasyon</option>
+                  <option value="Fizyoterapi ve Rehabilitasyon">
+                    Fizyoterapi ve Rehabilitasyon
+                  </option>
                   <option value="Hemşirelik">Hemşirelik</option>
                   <option value="Hukuk">Hukuk</option>
                   <option value="İşletme">İşletme</option>
                   <option value="Mühendislik">Mühendislik</option>
                   <option value="Öğretmenlik">Öğretmenlik</option>
                   <option value="Tıp">Tıp</option>
-                  <option value="Yönetim Bilişim Sistemleri">Yönetim Bilişim Sistemleri</option>
+                  <option value="Yönetim Bilişim Sistemleri">
+                    Yönetim Bilişim Sistemleri
+                  </option>
                   <option value="Diğer">Diğer</option>
                 </select>
               </div>
             </div>
             <div className="form-column">
               <div className="form-group">
-                <label htmlFor="educationLevel">Eğitim gördüğünüz sınıf düzeyini:</label>
+                <label htmlFor="educationLevel">
+                  Eğitim gördüğünüz sınıf düzeyini:
+                </label>
                 <select
                   id="educationLevel"
                   name="educationLevel"
@@ -208,7 +224,9 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="longestResidence">En uzun süre yaşadığınız yer:</label>
+                <label htmlFor="longestResidence">
+                  En uzun süre yaşadığınız yer:
+                </label>
                 <select
                   id="longestResidence"
                   name="longestResidence"
@@ -223,7 +241,9 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="monthlyIncome">AYLIK (bireysel) gelir düzeyiniz:</label>
+                <label htmlFor="monthlyIncome">
+                  AYLIK (bireysel) gelir düzeyiniz:
+                </label>
                 <select
                   id="monthlyIncome"
                   name="monthlyIncome"
@@ -239,7 +259,9 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="chronicCondition">Fiziksel bir rahatsızlığınız (kronik hastalığınız) var mı?</label>
+                <label htmlFor="chronicCondition">
+                  Fiziksel bir rahatsızlığınız (kronik hastalığınız) var mı?
+                </label>
                 <select
                   id="chronicCondition"
                   name="chronicCondition"
@@ -262,7 +284,10 @@ export default function Register() {
                 )}
               </div>
               <div class="form-group">
-                <label htmlFor="medicationForChronicCondition">Fiziksel rahatsızlığınız (kronik hastalık gibi) sebebi ile düzenli ilaç kullanıyor musunuz?</label>
+                <label htmlFor="medicationForChronicCondition">
+                  Fiziksel rahatsızlığınız (kronik hastalık gibi) sebebi ile
+                  düzenli ilaç kullanıyor musunuz?
+                </label>
                 <select
                   id="medicationForChronicCondition"
                   name="medicationForChronicCondition"
@@ -275,7 +300,10 @@ export default function Register() {
                 </select>
               </div>
               <div class="form-group">
-                <label htmlFor="psychologicalCondition">Doktor tarafından tanı konulan psikolojik/psikiyatrik bir rahatsızlığınız var mı?</label>
+                <label htmlFor="psychologicalCondition">
+                  Doktor tarafından tanı konulan psikolojik/psikiyatrik bir
+                  rahatsızlığınız var mı?
+                </label>
                 <select
                   id="psychologicalCondition"
                   name="psychologicalCondition"
@@ -298,7 +326,9 @@ export default function Register() {
                 )}
               </div>
               <div class="form-group">
-                <label htmlFor="medicationForPsychologicalCondition">Bu tanı sebebiyle ilaç kullanıyor musunuz?</label>
+                <label htmlFor="medicationForPsychologicalCondition">
+                  Bu tanı sebebiyle ilaç kullanıyor musunuz?
+                </label>
                 <select
                   id="medicationForPsychologicalCondition"
                   name="medicationForPsychologicalCondition"
@@ -311,7 +341,10 @@ export default function Register() {
                 </select>
               </div>
               <div class="form-group">
-                <label htmlFor="receivingPsychologicalTreatment">Şu anda herhangi bir yöntem ile psikolojik tedavi alıyor musunuz?</label>
+                <label htmlFor="receivingPsychologicalTreatment">
+                  Şu anda herhangi bir yöntem ile psikolojik tedavi alıyor
+                  musunuz?
+                </label>
                 <select
                   id="receivingPsychologicalTreatment"
                   name="receivingPsychologicalTreatment"
@@ -325,7 +358,9 @@ export default function Register() {
               </div>
               {isFormComplete() && (
                 <div className="form-group">
-                  <button className="submit-button" type="submit">Kaydet</button>
+                  <button className="submit-button" type="submit">
+                    Kaydet
+                  </button>
                 </div>
               )}
             </div>

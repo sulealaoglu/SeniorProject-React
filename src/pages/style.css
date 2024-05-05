@@ -227,12 +227,6 @@ td:last-child {
   border-right: none; /* Son sütunun sağ kenarlığını kaldır */
 }
 
-.react-calendar {
-  width: 400px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-
 .calendar-container {
   position: relative;
   width: 500px;
@@ -252,102 +246,6 @@ td:last-child {
   z-index: -1;
 }
 
-.react-calendar {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.react-calendar__navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.react-calendar__navigation button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2em;
-  padding: 0 10px;
-}
-
-.react-calendar__navigation button:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.react-calendar__month-view__weekdays {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  background: #f5f5f5;
-  font-weight: bold;
-}
-
-.react-calendar__month-view__weekdays button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 0.8em;
-  padding: 0 5px;
-}
-
-.react-calendar__month-view__days {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px 0;
-}
-
-.react-calendar__month-view__days button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  font-size: 0.8em;
-  padding: 15px;
-  margin: 5px;
-  border-radius: 50% !important;
-  width: 25px;
-  height: 35px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-}
-.react-calendar__month-view__days button:focus {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-}
-
-.react-calendar__month-view__days button:hover {
-  background: #f5f5f5;
-}
-
-.react-calendar__month-view__days button.react-calendar__tile--active {
-  background: #007bff;
-  color: white;
-}
-
-.react-calendar__month-view__days button.react-calendar__tile--active:focus {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-}
-
-.react-calendar__month-view__days button.react-calendar__tile--active:hover {
-  background: #0062cc;
-}
-
-.react-calendar__month-view__days button.react-calendar__tile--hasActive {
-  background: #e5e5e5;
-}
-
 .description-box {
   width: 700px;
   margin: 20px auto; /* Center the box and provide some margin around it */
@@ -356,7 +254,7 @@ td:last-child {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-  backdrop-filter: blur(20px); /* Soft blur effect on background */
+  backdrop-filter: blur(10px); /* Soft blur effect on background */
 }
 
 .calendar {
@@ -367,11 +265,11 @@ td:last-child {
   gap: 10px; /* Space between days */
   padding: 20px;
   justify-content: center; /* Center the grid horizontally */
-  width: 420px;
+  width: 480px;
   background: transparent;
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 30px 40px;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -381,7 +279,7 @@ td:last-child {
   background: transparent;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   width: 40px;
 }
@@ -400,9 +298,11 @@ td:last-child {
 }
 
 .month-name {
-  font-size: 20px;
+  font-size: 30px;
   background: transparent;
   width: 350px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 
   text-decoration: #000000;
 }
@@ -438,12 +338,15 @@ td:last-child {
 
 /* Mood Selector Popup Styling */
 .mood-selector {
+  width: 450px;
+  height: 350px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column; /* Stack buttons vertically */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
   gap: 10px;
   padding: 20px;
   background-color: #ffffff; /* White background for the popup */
@@ -453,16 +356,39 @@ td:last-child {
   z-index: 10;
 }
 
+.mood-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .mood-selector button {
-  width: 50px;
+  width: 100px;
   height: 50px;
   border-radius: 50%; /* Circle shape */
   border: none;
-  margin: 5px;
   background-size: cover; /* Ensure the mood images cover the button area */
   background-position: center; /* Center the mood images */
 }
 
+.mood-text-input {
+  width: 300px; /* Wide enough for at least 50 words */
+  height: 150px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.save-button {
+  width: 100px !important; /* Set the width of the save button */
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #499e5d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px !important;
+  cursor: pointer;
+}
 /* Mood Buttons Styling */
 button {
   padding: 10px 20px;
@@ -577,7 +503,6 @@ video {
 }
 
 .form-container {
- 
   background: transparent;
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -620,7 +545,6 @@ video {
   margin-left: 15px;
   padding: 3px 3px 3px 3px;
 }
-
 
 .home-content {
   display: flex;

@@ -1,6 +1,9 @@
-import React, { useState } from "react";
 import moment from "moment";
-import videoBg from "../Components/Assests/blossom.mp4";
+import React, { useState, useEffect } from "react";
+import springVideo from "../Components/Assests/spring.mp4";
+import summerVideo from "../Components/Assests/summer.mp4";
+import fallVideo from "../Components/Assests/fall.mp4";
+import winterVideo from "../Components/Assests/winter.mp4";
 import veryHappyImage from "../Components/Assests/emotions/very_happy.png";
 import happyImage from "../Components/Assests/emotions/happy.png";
 import neutralImage from "../Components/Assests/emotions/neutral.png";
@@ -11,6 +14,7 @@ const MoodCalendar = () => {
   const [moods, setMoods] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [videoBg, setVideoBg] = useState(summerVideo); // Default to summer.mp4
 
   const handleDayClick = (day) => {
     setSelectedDay(moment(currentDate).date(day).toDate());
@@ -33,6 +37,36 @@ const MoodCalendar = () => {
   const year = moment(currentDate).year();
   const daysInMonth = moment(currentDate).daysInMonth();
   const days = [];
+
+  useEffect(() => {
+    const month = moment(currentDate).month();
+
+    switch (month) {
+      case 2: // March
+      case 3: // April
+      case 4: // May
+        setVideoBg(springVideo);
+        break;
+      case 5: // June
+      case 6: // July
+      case 7: // August
+        setVideoBg(summerVideo);
+        break;
+      case 8: // September
+      case 9: // October
+      case 10: // November
+        setVideoBg(fallVideo);
+        break;
+      case 11: // December
+      case 0: // January
+      case 1: // February
+        setVideoBg(winterVideo);
+        break;
+      default:
+        setVideoBg(summerVideo); // Default to summer
+        break;
+    }
+  }, [currentDate]);
 
   // Fill in the days of the month
   for (let day = 1; day <= daysInMonth; day++) {
@@ -73,9 +107,11 @@ const MoodCalendar = () => {
             &laquo;
           </button>
           <div className="month-name-container">
-            <button className="month-name">{`${monthName} ${year}`}</button>
+            <button className="month-name">
+              {`${monthName.toUpperCase()} ${year}`}
+            </button>
           </div>
-          <button className="month-button" onClick={nextMonth}>
+          <button class="month-button" onClick={nextMonth}>
             &raquo;
           </button>
         </div>
@@ -104,18 +140,27 @@ const MoodCalendar = () => {
 
           {selectedDay && (
             <div className="mood-selector">
-              {moodOptions.map((mood) => (
-                <button
-                  key={mood.label}
-                  onClick={() => handleMoodClick(mood.image)}
-                  style={{
-                    backgroundImage: `url(${mood.image})`,
-                    backgroundSize: "cover",
-                  }}
-                >
-                  {/* Intentionally left blank to only show the image */}
-                </button>
-              ))}
+              <div className="mood-buttons">
+                {moodOptions.map((mood) => (
+                  <button
+                    key={mood.label}
+                    onClick={() => handleMoodClick(mood.image)}
+                    style={{
+                      backgroundImage: `url(${mood.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    {/* Intentionally left blank to only show the image */}
+                  </button>
+                ))}
+              </div>
+              <input
+                type="text"
+                className="mood-text-input"
+                placeholder="Bugün için notunuzu giriniz."
+              />
+              <button className="save-button">Save</button>
             </div>
           )}
         </div>
@@ -123,4 +168,5 @@ const MoodCalendar = () => {
     </div>
   );
 };
+
 export default MoodCalendar;
