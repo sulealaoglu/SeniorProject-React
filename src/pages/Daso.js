@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RadioTable from "../Components/RadioTable";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import videoBg from "../Components/Assests/login.mp4";
 export default function Daso() {
   const questions = [
     "1.Gevşeyip rahatlamakta zorluk çektim.",
@@ -45,13 +46,16 @@ export default function Daso() {
     depression = answers [2]+ answers [4]+ answers [9]+ answers [12]+ answers [15]+ answers [16]+ answers [20];
     anxiety = answers [1]+ answers [3]+ answers [6]+ answers [8]+ answers [14]+ answers [18]+ answers [19];
     console.log(answers);
+    const answersJson = JSON.stringify(answers);
     console.log("stres"+ stres);
     console.log("depresyon"+ depression);
     console.log("anksiyete"+ anxiety);
+    console.log(answersJson);
     navigate("/kpsoform");
   };
 
   return (
+ 
     <div className="wrapper-scale">
       <RadioTable
         headers={headers} // Tablo başlıkları
@@ -62,5 +66,6 @@ export default function Daso() {
         onSubmit={handleSubmit}
       />
     </div>
+
   );
 }

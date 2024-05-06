@@ -49,6 +49,10 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     console.log("butona bastın");
+     // Save username and password to local storage
+     localStorage.setItem("username", username);
+     localStorage.setItem("password", password);
+     
     // // başarılı girişten sonra yönlendirme yap (api ile kontrol edilecek)
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `${apiUrl}/login`, false); // true => asenkron istek

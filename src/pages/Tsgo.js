@@ -44,7 +44,8 @@ export default function Tsgo() {
       totalscore = totalscore+ answers[index];
       
     }
-    console.log(answers);
+    const answersJson = JSON.stringify(answers);
+    console.log(answersJson);
     console.log (totalscore);
   };
 

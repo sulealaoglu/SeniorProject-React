@@ -18,7 +18,8 @@ export default function Kpso() {
   let totalscore = 0;
   const handleSubmit = () => {
     totalscore = answers[0]-answers[1]+answers[2]-answers[3]+answers[4]-answers[5];
-    console.log(answers);
+    const answersJson = JSON.stringify(answers);
+    console.log(answersJson);
     console.log ("total score"+ totalscore);
     navigate("/tsgoform");
   };

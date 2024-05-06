@@ -36,9 +36,11 @@ export default function Pndo() {
   const handleSubmit = () => {
     pozitive = answers [0]+ answers [2]+ answers [4]+ answers [8]+ answers [9]+ answers [11]+ answers [13]+ answers [15]+ answers [16]+ answers [18];
     negative = answers [1]+ answers [3]+ answers [5]+ answers [6]+ answers [7]+ answers [10]+ answers [12]+ answers [14]+ answers [17]+ answers [19];
-    console.log(answers);
+    const answersJson = JSON.stringify(answers);
+    console.log(answersJson);
     console.log ("pozitif"+pozitive);
     console.log ("negatif"+negative);
+
     navigate("/dasoform");
   };
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../pages/style.css";
-
+import "../pages/style.css"
 const RadioTable = ({
   headers,
   questions,
@@ -57,6 +56,7 @@ const RadioTable = ({
   const currentQuestions = questions.slice(startIndex, endIndex);
 
   return (
+    
     <div>
       <table className="table">
         <thead>
