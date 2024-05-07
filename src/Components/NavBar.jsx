@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <nav>
       <ul>
-        <li>Blogs</li>
-        <li>Calendar</li>
-        <li>Emotional Expression</li>
-        <li>Profile</li>
+        <li>
+          <Link to="/Profile">Blogs</Link>
+        </li>
+        <li>
+          <Link to="/Takvim">Calendar</Link>
+        </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

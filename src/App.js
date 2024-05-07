@@ -11,9 +11,12 @@ import KpsoForm from "./pages/Kpso.js";
 import TsgoForm from "./pages/Tsgo.js";
 import PndoForm from "./pages/Pndo.js";
 import MoodCalendar from "./pages/MoodCalendar.js";
+import Navbar from "./Components/NavBar.jsx";
 function App() {
   return (
     <>
+      <Navbar />
+
       <Routes>
         {<Route path="/register" element={<Register />} />}
         <Route path="/" element={<Login />} />
@@ -25,7 +28,7 @@ function App() {
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Profile" element={<Profile />} />
-        
+
         {/* <Route path="/profile" element={
             <PrivateRoute>
               <Profile />
