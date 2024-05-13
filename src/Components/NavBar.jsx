@@ -1,9 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
-    <nav>
+    <nav
+      style={{
+        display:
+          location.pathname == "/" || location.pathname == "/register"
+            ? "none"
+            : "flex",
+      }}
+    >
       <ul>
         <li>
           <Link to="/Profile">Blogs</Link>
