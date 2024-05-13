@@ -36,26 +36,46 @@ export default function Daso() {
     "Her zaman",
   ];
   const navigate = useNavigate();
-  const [answers, setAnswers] = useState(Array(21).fill(0));
+  const [answers, setAnswers] = useState(Array(21).fill(-1));
   const itemsPerPage = 7;
- let stres;
- let depression;
- let anxiety;
+  let stres;
+  let depression;
+  let anxiety;
   const handleSubmit = () => {
-    stres = answers [0]+ answers [5]+ answers [7]+ answers [10]+ answers [11]+ answers [13]+ answers [17];
-    depression = answers [2]+ answers [4]+ answers [9]+ answers [12]+ answers [15]+ answers [16]+ answers [20];
-    anxiety = answers [1]+ answers [3]+ answers [6]+ answers [8]+ answers [14]+ answers [18]+ answers [19];
+    stres =
+      answers[0] +
+      answers[5] +
+      answers[7] +
+      answers[10] +
+      answers[11] +
+      answers[13] +
+      answers[17];
+    depression =
+      answers[2] +
+      answers[4] +
+      answers[9] +
+      answers[12] +
+      answers[15] +
+      answers[16] +
+      answers[20];
+    anxiety =
+      answers[1] +
+      answers[3] +
+      answers[6] +
+      answers[8] +
+      answers[14] +
+      answers[18] +
+      answers[19];
     console.log(answers);
     const answersJson = JSON.stringify(answers);
-    console.log("stres"+ stres);
-    console.log("depresyon"+ depression);
-    console.log("anksiyete"+ anxiety);
+    console.log("stres" + stres);
+    console.log("depresyon" + depression);
+    console.log("anksiyete" + anxiety);
     console.log(answersJson);
     navigate("/kpsoform");
   };
 
   return (
- 
     <div className="wrapper-scale">
       <RadioTable
         headers={headers} // Tablo başlıkları
@@ -66,6 +86,5 @@ export default function Daso() {
         onSubmit={handleSubmit}
       />
     </div>
-
   );
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import RadioTable from "../Components/RadioTable";
 export default function Tsgo() {
   // Sorular listesi
@@ -25,32 +26,32 @@ export default function Tsgo() {
     "20.İnsanların ne kadar iyi olduğu konusunda çok şey öğrendim.",
     "21.Başkalarına ihtiyacım olabileceğini öğrendim.",
   ];
-
+  const navigate = useNavigate();
   const headers = ["Soru", "0", "1", "2", "3", "4", "5"];
   // const [allAnswered, setAllAnswered] = useState(false);
-  const [answers, setAnswers] = useState(Array(21).fill(0));
+  const [answers, setAnswers] = useState(Array(21).fill(-1));
   const itemsPerPage = 7;
   let totalscore = 0;
 
-//   useEffect(() => {
-//     // Tüm sorular yanıtlanmış mı kontrol et
-//     const answeredCount = answers.filter(answer => answer !== null && answer >= 0 && answer <= 5).length;
-//   const allQuestionsAnswered = answeredCount === answers.length;
-//   setAllAnswered(allQuestionsAnswered);
-// }, [answers]);
+  //   useEffect(() => {
+  //     // Tüm sorular yanıtlanmış mı kontrol et
+  //     const answeredCount = answers.filter(answer => answer !== null && answer >= 0 && answer <= 5).length;
+  //   const allQuestionsAnswered = answeredCount === answers.length;
+  //   setAllAnswered(allQuestionsAnswered);
+  // }, [answers]);
 
   const handleSubmit = () => {
     for (let index = 0; index < answers.length; index++) {
-      totalscore = totalscore+ answers[index];
-      
+      totalscore = totalscore + answers[index];
     }
     const answersJson = JSON.stringify(answers);
     console.log(answersJson);
-    console.log (totalscore);
+    console.log(totalscore);
+    navigate("/ddvp");
   };
 
   return (
-    <div >
+    <div>
       <div className="description-box">
         <p>
           Aşağıda yaşadığınız stresten dolayı yaşamınızda olabilecek bazı

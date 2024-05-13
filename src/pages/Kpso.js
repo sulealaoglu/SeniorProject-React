@@ -13,7 +13,7 @@ export default function Kpso() {
   ];
   const headers = ["Soru", "Hiç", "Çok az", "Orta düzeyde", "Sıklıkla", "Çok"];
   const navigate = useNavigate();
-  const [answers, setAnswers] = useState(Array(21).fill(0));
+  const [answers, setAnswers] = useState(Array(6).fill(-1));
   const itemsPerPage = 6;
   let totalscore = 0;
 
