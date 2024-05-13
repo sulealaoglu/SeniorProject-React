@@ -1,15 +1,30 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
-    <div className="navbar">
+    <nav
+      style={{
+        display:
+          location.pathname == "/" || location.pathname == "/register"
+            ? "none"
+            : "flex",
+      }}
+    >
       <ul>
-        <li>Blogs</li>
-        <li>Calendar</li>
-        <li>Emotional Expression</li>
-        <li>Profile</li>
+        <li>
+          <Link to="/Profile">Profil</Link>
+        </li>
+        <li>
+          <Link to="/Takvim">Takvim</Link>
+        </li>
+        <li>
+          <Link to="/DDVP">Günlük Yazı</Link>
+        </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

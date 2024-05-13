@@ -16,11 +16,18 @@ export default function Kpso() {
   const [answers, setAnswers] = useState(Array(21).fill(0));
   const itemsPerPage = 6;
   let totalscore = 0;
+
   const handleSubmit = () => {
-    totalscore = answers[0]-answers[1]+answers[2]-answers[3]+answers[4]-answers[5];
+    totalscore =
+      answers[0] -
+      answers[1] +
+      answers[2] -
+      answers[3] +
+      answers[4] -
+      answers[5];
     const answersJson = JSON.stringify(answers);
     console.log(answersJson);
-    console.log ("total score"+ totalscore);
+    console.log("total score" + totalscore);
     navigate("/tsgoform");
   };
 

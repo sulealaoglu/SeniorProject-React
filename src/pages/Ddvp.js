@@ -1,6 +1,8 @@
 import InputComponent from "../Components/InputComponent";
 import React, { useState } from "react";
-import videoBg from "../Components/Assests/winter.mp4";
+
+import videoBg from "../Components/Assests/summer.mp4";
+
 
 export default function Ddvp() {
   const [receivedText, setReceivedText] = useState("");
@@ -27,15 +29,15 @@ export default function Ddvp() {
     <>
       <div className="overlay"></div>
       <video src={videoBg} autoPlay loop muted />
-    <div className="content">
-      <InputComponent
-        onTextReceived={receiveText}
-        onSentimentResultReceived={handleSentimentResultReceived}
-      />
-      {/* <p>Girilen Metin: {receivedText}</p>
+      <div className="content">
+        <InputComponent
+          onTextReceived={receiveText}
+          onSentimentResultReceived={handleSentimentResultReceived}
+        />
+        {/* <p>Girilen Metin: {receivedText}</p>
       <p>Sentiment Sonucu: {sentimentResult}</p> */}
-      <ul>{sentimentWords}</ul>
-    </div>
+        <ul>{sentimentWords}</ul>
+      </div>
     </>
   );
 }

@@ -9,7 +9,7 @@ import happyImage from "../Components/Assests/emotions/happy.png";
 import neutralImage from "../Components/Assests/emotions/neutral.png";
 import sadImage from "../Components/Assests/emotions/sad.png";
 import verySadImage from "../Components/Assests/emotions/very_sad.png";
-
+import Navbar from "../Components/NavBar";
 const MoodCalendar = () => {
   const [moods, setMoods] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
@@ -99,6 +99,7 @@ const MoodCalendar = () => {
   return (
     <div>
       <div className="overlay"></div>
+
       <video src={videoBg} autoPlay loop muted />
 
       <div className="content">
