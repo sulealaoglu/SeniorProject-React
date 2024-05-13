@@ -15,13 +15,13 @@ const Navbar = () => {
     >
       <ul>
         <li>
-          <Link to="/Profile">Blogs</Link>
+          <Link to="/Profile">Profil</Link>
         </li>
         <li>
-          <Link to="/Takvim">Calendar</Link>
+          <Link to="/Takvim">Takvim</Link>
         </li>
         <li>
-          <Link to="/Günlük Yazı">Calendar</Link>
+          <Link to="/DDVP">Günlük Yazı</Link>
         </li>
       </ul>
     </nav>
