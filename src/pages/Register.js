@@ -4,25 +4,24 @@ import videoBg from "../Components/Assests/login.mp4";
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    userName: "",
+    user_Name: "",
+    user_Surname:"",
     email: "",
-    cellphone: "",
-    userPassword: "",
-    firstName: "",
-    lastName: "",
+    cell_Phone: "",
+    password: "",
     age: "",
     gender: "",
-    maritalStatus: "",
-    educationField: "",
-    educationLevel: "",
-    longestResidence: "",
-    monthlyIncome: "",
-    chronicCondition: "",
-    ChronicConditionName: "",
-    medicationForChronicCondition: "",
-    psychologicalCondition: "",
-    medicationForPsychologicalCondition: "",
-    receivingPsychologicalTreatment: "",
+    marital_Status: "",
+    education_Field: "",
+    education_Level: "",
+    longest_Residence: "",
+    monthly_Income: "",
+    chronic_Condition: "",
+    Chronic_Condition_Name: "",
+    Chronic_Condition_Med: "",
+    psychological_Condition: "",
+    psychological_Condition_Med: "",
+    receiving_Psycho_Treatment: "",
   });
 
   const handleChange = (e) => {
@@ -69,13 +68,23 @@ export default function Register() {
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-container">
             <div className="form-column">
-              <div className="form-group">
-                <label htmlFor="userName">Kullanıcı Adı:</label>
+            <div className="form-group">
+                <label htmlFor="user_Name">Adınız:</label>
                 <input
                   type="text"
-                  id="userName"
-                  name="userName"
-                  value={formData.userName}
+                  id="user_Name"
+                  name="user_Name"
+                  value={formData.user_Name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="user_Surname">Soyadınız:</label>
+                <input
+                  type="text"
+                  id="user_Surname"
+                  name="user_Surname"
+                  value={formData.user_Surname}
                   onChange={handleChange}
                 />
               </div>
@@ -90,12 +99,12 @@ export default function Register() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="cellphone">Telefon Numarası:</label>
+                <label htmlFor="cell_Phone">Telefon Numarası:</label>
                 <input
                   type="number"
-                  id="cellphone"
-                  name="cellphone"
-                  value={formData.cellphone}
+                  id="cell_Phone"
+                  name="cell_Phone"
+                  value={formData.cell_Phone}
                   onChange={handleChange}
                 />
               </div>
@@ -104,31 +113,12 @@ export default function Register() {
                 <input
                   type="password"
                   id="password"
-                  name="userPassword"
-                  value={formData.userPassword}
+                  name="password"
+                  value={formData.password}
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="firstName">Adınız:</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="lastName">Soyadınız:</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
-              </div>
+              
               <div className="form-group">
                 <label htmlFor="age">Yaşınız:</label>
                 <input
@@ -156,11 +146,11 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="maritalStatus">Medeni Haliniz:</label>
+                <label htmlFor="marital_Status">Medeni Haliniz:</label>
                 <select
-                  id="maritalStatus"
-                  name="maritalStatus"
-                  value={formData.maritalStatus}
+                  id="marital_Status"
+                  name="marital_Status"
+                  value={formData.marital_Status}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -171,13 +161,13 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="educationField">
+                <label htmlFor="education_Field">
                   Eğitim gördüğünüz bölümü:
                 </label>
                 <select
-                  id="educationField"
-                  name="educationField"
-                  value={formData.educationField}
+                  id="education_Field"
+                  name="education_Field"
+                  value={formData.education_Field}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -204,13 +194,13 @@ export default function Register() {
             </div>
             <div className="form-column">
               <div className="form-group">
-                <label htmlFor="educationLevel">
+                <label htmlFor="education_Level">
                   Eğitim gördüğünüz sınıf düzeyini:
                 </label>
                 <select
-                  id="educationLevel"
-                  name="educationLevel"
-                  value={formData.educationLevel}
+                  id="education_Level"
+                  name="education_Level"
+                  value={formData.education_Level}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -224,13 +214,13 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="longestResidence">
+                <label htmlFor="longest_Residence">
                   En uzun süre yaşadığınız yer:
                 </label>
                 <select
-                  id="longestResidence"
-                  name="longestResidence"
-                  value={formData.longestResidence}
+                  id="longest_Residence"
+                  name="longest_Residence"
+                  value={formData.longest_Residence}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -241,13 +231,13 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="monthlyIncome">
+                <label htmlFor="monthly_Income">
                   AYLIK (bireysel) gelir düzeyiniz:
                 </label>
                 <select
-                  id="monthlyIncome"
-                  name="monthlyIncome"
-                  value={formData.monthlyIncome}
+                  id="monthly_Income"
+                  name="monthly_Income"
+                  value={formData.monthly_Income}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -259,39 +249,39 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="chronicCondition">
+                <label htmlFor="chronic_Condition">
                   Fiziksel bir rahatsızlığınız (kronik hastalığınız) var mı?
                 </label>
                 <select
-                  id="chronicCondition"
-                  name="chronicCondition"
-                  value={formData.chronicCondition}
+                  id="chronic_Condition"
+                  name="chronic_Condition"
+                  value={formData.chronic_Condition}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
                   <option value="Hayır">Hayır</option>
                   <option value="Evet">Evet</option>
                 </select>
-                {formData.chronicCondition === "Evet" && (
+                {formData.chronic_Condition === "Evet" && (
                   <input
                     type="text"
-                    id="ChronicConditionName"
-                    name="ChronicConditionName"
-                    value={formData.ChronicConditionName}
+                    id="Chronic_Condition_Name"
+                    name="Chronic_Condition_Name"
+                    value={formData.Chronic_Condition_Name}
                     onChange={handleChange}
                     placeholder="Nedir?"
                   />
                 )}
               </div>
               <div class="form-group">
-                <label htmlFor="medicationForChronicCondition">
+                <label htmlFor="Chronic_Condition_Med">
                   Fiziksel rahatsızlığınız (kronik hastalık gibi) sebebi ile
                   düzenli ilaç kullanıyor musunuz?
                 </label>
                 <select
-                  id="medicationForChronicCondition"
-                  name="medicationForChronicCondition"
-                  value={formData.medicationForChronicCondition}
+                  id="Chronic_Condition_Med"
+                  name="Chronic_Condition_Med"
+                  value={formData.Chronic_Condition_Med}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -300,39 +290,39 @@ export default function Register() {
                 </select>
               </div>
               <div class="form-group">
-                <label htmlFor="psychologicalCondition">
+                <label htmlFor="psychological_Condition">
                   Doktor tarafından tanı konulan psikolojik/psikiyatrik bir
                   rahatsızlığınız var mı?
                 </label>
                 <select
-                  id="psychologicalCondition"
-                  name="psychologicalCondition"
-                  value={formData.psychologicalCondition}
+                  id="psychological_Condition"
+                  name="psychological_Condition"
+                  value={formData.psychological_Condition}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
                   <option value="Hayır">Hayır</option>
                   <option value="Evet">Evet</option>
                 </select>
-                {formData.psychologicalCondition === "Evet" && (
+                {formData.psychological_Condition === "Evet" && (
                   <input
                     type="text"
-                    id="medicationForPsychologicalCondition"
-                    name="medicationForPsychologicalCondition"
-                    value={formData.medicationForPsychologicalCondition}
+                    id="psychological_Condition_Med"
+                    name="psychological_Condition_Med"
+                    value={formData.psychological_Condition_Med}
                     onChange={handleChange}
                     placeholder="Tanıyı yazınız"
                   />
                 )}
               </div>
               <div class="form-group">
-                <label htmlFor="medicationForPsychologicalCondition">
+                <label htmlFor="psychological_Condition_Med">
                   Bu tanı sebebiyle ilaç kullanıyor musunuz?
                 </label>
                 <select
-                  id="medicationForPsychologicalCondition"
-                  name="medicationForPsychologicalCondition"
-                  value={formData.medicationForPsychologicalCondition}
+                  id="psychological_Condition_Med"
+                  name="psychological_Condition_Med"
+                  value={formData.psychological_Condition_Med}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -341,14 +331,14 @@ export default function Register() {
                 </select>
               </div>
               <div class="form-group">
-                <label htmlFor="receivingPsychologicalTreatment">
+                <label htmlFor="receiving_Psycho_Treatment">
                   Şu anda herhangi bir yöntem ile psikolojik tedavi alıyor
                   musunuz?
                 </label>
                 <select
-                  id="receivingPsychologicalTreatment"
-                  name="receivingPsychologicalTreatment"
-                  value={formData.receivingPsychologicalTreatment}
+                  id="receiving_Psycho_Treatment"
+                  name="receiving_Psycho_Treatment"
+                  value={formData.receiving_Psycho_Treatment}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>

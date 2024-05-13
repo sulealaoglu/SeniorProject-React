@@ -1,6 +1,8 @@
 import InputComponent from "../Components/InputComponent";
 import React, { useState } from "react";
+
 import videoBg from "../Components/Assests/summer.mp4";
+
 
 export default function Ddvp() {
   const [receivedText, setReceivedText] = useState("");
