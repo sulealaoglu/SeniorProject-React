@@ -20,6 +20,9 @@ const Navbar = () => {
         <li>
           <Link to="/Takvim">Calendar</Link>
         </li>
+        <li>
+          <Link to="/Günlük Yazı">Calendar</Link>
+        </li>
       </ul>
     </nav>
   );
