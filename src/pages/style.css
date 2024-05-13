@@ -699,6 +699,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  width: 130rem;
 }
 
 nav li {
