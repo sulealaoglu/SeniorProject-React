@@ -2,24 +2,28 @@ import React, { useState } from "react";
 import "./style.css";
 import videoBg from "../Components/Assests/login.mp4";
 import { camelCase } from "lodash";
+import { useNavigate } from "react-router-dom";
+
 export default function Register() {
+  const [apiUrl, setApiUrl] = useState("http://localhost:5285/api/account");
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user_Name: "",
     user_Surname: "",
     email: "",
     cell_Phone: "",
     password: "",
-    age: "",
+    age: 0,
     gender: "",
-    marital_Status: "",
+    marial_Status: "",
     education_Field: "",
     education_Level: "",
     longest_Residence: "",
     monthly_Income: "",
-    chronic_Condition: "",
+    chronic_Condition: false,
     Chronic_Condition_Name: "",
     Chronic_Condition_Med: "",
-    psychological_Condition: "",
+    psychological_Condition: false,
     psychological_Condition_Med: "",
     receiving_Psycho_Treatment: "",
   });
@@ -28,7 +32,12 @@ export default function Register() {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]:
+        name === "age"
+          ? parseInt(value, 10)
+          : name === "psychologicalCondition" || name === "chronic_Condition"
+          ? value === "true"
+          : value,
     }));
   };
 
@@ -36,6 +45,26 @@ export default function Register() {
     e.preventDefault();
     const formDataJson = JSON.stringify(camelizeKeys(formData));
     console.log(formDataJson);
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${apiUrl}/register`, false); // true => asenkron istek
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          console.log(data);
+          if (data.progressLevel === 1 || data.progressLevel === 4)
+            navigate("/pndoform");
+          else navigate("/ddvp");
+        } else {
+          console.error("Error fetching user data:", xhr.statusText);
+        }
+      }
+    };
+
+    const requestBody = JSON.stringify(camelizeKeys(formData));
+    console.log(requestBody);
+    xhr.send(requestBody);
   };
 
   const camelizeKeys = (obj) => {
@@ -161,11 +190,11 @@ export default function Register() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="marital_Status">Medeni Haliniz:</label>
+                <label htmlFor="marial_Status">Medeni Haliniz:</label>
                 <select
-                  id="marital_Status"
-                  name="marital_Status"
-                  value={formData.marital_Status}
+                  id="marial_Status"
+                  name="marial_Status"
+                  value={formData.marial_Status}
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
@@ -274,8 +303,8 @@ export default function Register() {
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
-                  <option value="Hayır">Hayır</option>
-                  <option value="Evet">Evet</option>
+                  <option value="false">Hayır</option>
+                  <option value="true">Evet</option>
                 </select>
                 {formData.chronic_Condition === "Evet" && (
                   <input
@@ -300,8 +329,8 @@ export default function Register() {
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
-                  <option value="Hayır">Hayır</option>
-                  <option value="Evet">Evet</option>
+                  <option value="false">Hayır</option>
+                  <option value="true">Evet</option>
                 </select>
               </div>
               <div class="form-group">
@@ -316,8 +345,8 @@ export default function Register() {
                   onChange={handleChange}
                 >
                   <option value="">Seçiniz</option>
-                  <option value="Hayır">Hayır</option>
-                  <option value="Evet">Evet</option>
+                  <option value="false">Hayır</option>
+                  <option value="true">Evet</option>
                 </select>
                 {formData.psychological_Condition === "Evet" && (
                   <input
