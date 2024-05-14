@@ -10,6 +10,9 @@ import KpsoForm from "./pages/Kpso.js";
 import TsgoForm from "./pages/Tsgo.js";
 import PndoForm from "./pages/Pndo.js";
 import MoodCalendar from "./pages/MoodCalendar.js";
+import Blog from "./pages/Blog.js";
+import FirstBlog from "./pages/FirstBlog.js";
+import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
 function App() {
   return (
@@ -26,7 +29,9 @@ function App() {
         <Route path="/Takvim" element={<MoodCalendar />} />
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Profile" element={<Profile />} />
-
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/FirstBlog" element={<FirstBlog />} />
+        <Route path="/Admin" element={<Admin />} />
         {/* <Route path="/profile" element={
             <PrivateRoute>
               <Profile />

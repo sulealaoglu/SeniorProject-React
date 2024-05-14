@@ -18,6 +18,9 @@ const Navbar = () => {
           <Link to="/Profile">Profil</Link>
         </li>
         <li>
+          <Link to="/Blog">Blog</Link>
+        </li>
+        <li>
           <Link to="/Takvim">Takvim</Link>
         </li>
         <li>

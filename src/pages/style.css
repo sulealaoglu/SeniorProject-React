@@ -719,3 +719,42 @@ nav li:hover a {
   background-color: #ddd;
   color: black;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for larger display */
+  gap: 20px;
+  padding: 20px;
+  height: 80vh; /* Set the container height to fill the screen */
+  box-sizing: border-box; /* Include padding in the height calculation */
+  width: 120vh;
+}
+
+.grid-item {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(50vh - 40px); /* Each item takes half the screen's height minus the gap */
+}
+
+.grid-item img {
+  max-width: 100%; /* Images fill the width of the container */
+  max-height: 70%; /* Limit image height to allow space for text */
+  object-fit: contain; /* Ensures image aspect ratio is maintained */
+}
+
+@media (max-width: 900px) {
+  .grid-container {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+
+  .grid-item {
+      height: calc(100vh / 3 - 40px); /* Adjust height for smaller screens */
+  }
+}
+
