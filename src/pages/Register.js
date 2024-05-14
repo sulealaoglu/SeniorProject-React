@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
 import videoBg from "../Components/Assests/login.mp4";
-
+import { camelCase } from "lodash";
 export default function Register() {
   const [formData, setFormData] = useState({
     user_Name: "",
-    user_Surname:"",
+    user_Surname: "",
     email: "",
     cell_Phone: "",
     password: "",
@@ -34,8 +34,23 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formDataJson = JSON.stringify(formData);
+    const formDataJson = JSON.stringify(camelizeKeys(formData));
     console.log(formDataJson);
+  };
+
+  const camelizeKeys = (obj) => {
+    if (Array.isArray(obj)) {
+      return obj.map((v) => camelizeKeys(v));
+    } else if (obj != null && obj.constructor === Object) {
+      return Object.keys(obj).reduce(
+        (result, key) => ({
+          ...result,
+          [camelCase(key)]: camelizeKeys(obj[key]),
+        }),
+        {}
+      );
+    }
+    return obj;
   };
 
   const isFormComplete = () => {
@@ -68,7 +83,7 @@ export default function Register() {
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-container">
             <div className="form-column">
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="user_Name">Adınız:</label>
                 <input
                   type="text"
@@ -118,7 +133,7 @@ export default function Register() {
                   onChange={handleChange}
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="age">Yaşınız:</label>
                 <input
