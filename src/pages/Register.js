@@ -58,13 +58,13 @@ export default function Register() {
     for (const key in formData) {
       // For conditional inputs, check only if the corresponding condition is true
       if (
-        key === "ChronicConditionName" &&
-        formData.chronicCondition !== "Evet"
+        key === "Chronic_Condition_Name" &&
+        formData.chronic_Condition !== "Evet"
       )
         continue;
       if (
-        key === "medicationForPsychologicalCondition" &&
-        formData.psychologicalCondition !== "Evet"
+        key === "psychological_Condition_Med" &&
+        formData.psychological_Condition !== "Evet"
       )
         continue;
 
