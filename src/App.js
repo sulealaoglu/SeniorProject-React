@@ -19,10 +19,10 @@ function App() {
       <Routes>
         {<Route path="/register" element={<Register />} />}
         <Route path="/" element={<Login />} />
-        <Route path="/kpsoform" element={<KpsoForm />} />
-        <Route path="/dasoform" element={<DasoForm />} />
-        <Route path="/tsgoform" element={<TsgoForm />} />
-        <Route path="/pndoform" element={<PndoForm />} />
+        <Route path="/kpso" element={<KpsoForm />} />
+        <Route path="/daso" element={<DasoForm />} />
+        <Route path="/tsgo" element={<TsgoForm />} />
+        <Route path="/pndo" element={<PndoForm />} />
         <Route path="/Takvim" element={<MoodCalendar />} />
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Profile" element={<Profile />} />

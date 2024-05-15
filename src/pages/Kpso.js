@@ -17,6 +17,15 @@ export default function Kpso() {
   const itemsPerPage = 6;
   let totalscore = 0;
 
+  const answersAsJson = () => {
+    let answersJson = { title: "KPSO", answers: [] };
+    answers.forEach((answer, index) => {
+      answersJson.answers.push({ [index + 1]: answer.toString() });
+    });
+    answersJson = JSON.stringify(answersJson);
+    return answersJson;
+  };
+
   const handleSubmit = () => {
     totalscore =
       answers[0] -
@@ -25,22 +34,24 @@ export default function Kpso() {
       answers[3] +
       answers[4] -
       answers[5];
-    const answersJson = JSON.stringify(answers);
-    console.log(answersJson);
+
+    console.log(answersAsJson());
     console.log("total score" + totalscore);
-    navigate("/tsgoform");
+    navigate("/tsgo");
   };
 
   return (
-    <div className="wrapper-scale">
-      <RadioTable
-        headers={headers} // Tablo başlıkları
-        questions={questions} // Sorular
-        answers={answers} // Cevaplar
-        setAnswers={setAnswers} // Cevapları güncelleme işlevi
-        itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
-        onSubmit={handleSubmit}
-      />
+    <div className="bg-test">
+      <div className="wrapper-scale">
+        <RadioTable
+          headers={headers} // Tablo başlıkları
+          questions={questions} // Sorular
+          answers={answers} // Cevaplar
+          setAnswers={setAnswers} // Cevapları güncelleme işlevi
+          itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
+          onSubmit={handleSubmit}
+        />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,12 @@ const Navbar = () => {
     <nav
       style={{
         display:
-          location.pathname == "/" || location.pathname == "/register"
+          location.pathname == "/" ||
+          location.pathname == "/register" ||
+          location.pathname == "/kpso" ||
+          location.pathname == "/pndo" ||
+          location.pathname == "/daso" ||
+          location.pathname == "/tsgo"
             ? "none"
             : "flex",
       }}

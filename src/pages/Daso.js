@@ -72,7 +72,7 @@ export default function Daso() {
     console.log("depresyon" + depression);
     console.log("anksiyete" + anxiety);
     console.log(answersJson);
-    navigate("/kpsoform");
+    navigate("/kpso");
   };
 
   return (

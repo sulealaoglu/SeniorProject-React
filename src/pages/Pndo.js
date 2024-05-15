@@ -61,7 +61,7 @@ export default function Pndo() {
     console.log("pozitif" + pozitive);
     console.log("negatif" + negative);
 
-    navigate("/dasoform");
+    navigate("/daso");
   };
 
   return (
