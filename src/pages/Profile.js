@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import videoBg from "../Components/Assests/login.mp4";
+import Navbar from "../Components/NavBar";
 export default function PrivateRoute({ children }) {
   const [formData, setFormData] = useState({
     userName: "",
@@ -61,6 +62,7 @@ export default function PrivateRoute({ children }) {
 
   return (
     <>
+      <Navbar />
       <div className="overlay"></div>
       <video src={videoBg} autoPlay loop muted />
       <div className="content">

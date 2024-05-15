@@ -3,19 +3,20 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
+  const hideNavbarPaths = [
+    "/",
+    "/register",
+    "/kpso",
+    "/pndo",
+    "/daso",
+    "/tsgo",
+    "*", // Add this to hide navbar on 404 page
+  ];
 
   return (
     <nav
       style={{
-        display:
-          location.pathname == "/" ||
-          location.pathname == "/register" ||
-          location.pathname == "/kpso" ||
-          location.pathname == "/pndo" ||
-          location.pathname == "/daso" ||
-          location.pathname == "/tsgo"
-            ? "none"
-            : "flex",
+        display: hideNavbarPaths.includes(location.pathname) ? "none" : "flex",
       }}
     >
       <ul>

@@ -1,8 +1,7 @@
 import InputComponent from "../Components/InputComponent";
 import React, { useState } from "react";
-
+import Navbar from "../Components/NavBar";
 import videoBg from "../Components/Assests/summer.mp4";
-
 
 export default function Ddvp() {
   const [receivedText, setReceivedText] = useState("");
@@ -27,6 +26,7 @@ export default function Ddvp() {
 
   return (
     <>
+      <Navbar />
       <div className="overlay"></div>
       <video src={videoBg} autoPlay loop muted />
       <div className="content">

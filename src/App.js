@@ -14,11 +14,17 @@ import Blog from "./pages/Blog.js";
 import FirstBlog from "./pages/FirstBlog.js";
 import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
+const NotFound = () => {
+  return (
+    <>
+      <h1>404 - Page Not Found</h1>
+      <p>Sorry, the page you are looking for could not be found.</p>
+    </>
+  );
+};
 function App() {
   return (
     <>
-      <Navbar />
-
       <Routes>
         {<Route path="/register" element={<Register />} />}
         <Route path="/" element={<Login />} />
@@ -32,6 +38,7 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/FirstBlog" element={<FirstBlog />} />
         <Route path="/Admin" element={<Admin />} />
+        <Route path="*" element={<NotFound />} />
         {/* <Route path="/profile" element={
             <PrivateRoute>
               <Profile />
