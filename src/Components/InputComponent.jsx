@@ -11,9 +11,12 @@ const InputComponent = ({ onTextReceived, onSentimentResultReceived }) => {
   const handleSubmit = () => {
     axios
       .post(
-        "http://localhost:5000/sentiment",
-        { text: dailyText },
-        { headers: { "Content-Type": "text/plain" } }
+        "http://localhost:5285/api/paradigm",
+        {
+          title: "Sınav",
+          content: dailyText,
+        },
+        { headers: { "Content-Type": "application/json" } }
       )
       .then((response) => {
         onSentimentResultReceived(response.data);

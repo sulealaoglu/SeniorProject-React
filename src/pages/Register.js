@@ -54,7 +54,7 @@ export default function Register() {
           const data = JSON.parse(xhr.responseText);
           console.log(data);
           if (data.progressLevel === 1 || data.progressLevel === 4)
-            navigate("/pndoform");
+            navigate("/pndo");
           else navigate("/ddvp");
         } else {
           console.error("Error fetching user data:", xhr.statusText);
