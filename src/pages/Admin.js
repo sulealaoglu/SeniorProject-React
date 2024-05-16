@@ -80,8 +80,8 @@ const AdminPage = () => {
             <button onClick={() => handleOptionChange("B")}>Pndo Ölçeği</button>
             <button onClick={() => handleOptionChange("C")}>Daso Ölçeği</button>
             <button onClick={() => handleOptionChange("D")}>Tsgo Ölçeği</button>
-            <button onClick={() => handleOptionChange("D")}>DDVP Sonuç</button>
-            <button onClick={() => handleOptionChange("D")}>
+            <button onClick={() => handleOptionChange("E")}>DDVP Sonuç</button>
+            <button onClick={() => handleOptionChange("F")}>
               Hasta Profili
             </button>
           </div>
