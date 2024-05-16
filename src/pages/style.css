@@ -760,3 +760,17 @@ nav li:hover a {
     height: calc(100vh / 3 - 40px); /* Adjust height for smaller screens */
   }
 }
+.blog-container {
+  position: absolute;
+  top: 50px; /* Adjust based on your layout needs */
+  left: 50px; /* Adjust based on your layout needs */
+  right: 50px; /* Adjust based on your layout needs */
+  bottom: 50px; /* Adjust based on your layout needs */
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  padding: 20px;
+  overflow: auto; /* Allows scrolling within the container */
+  border: 5px solid yellow; /* Thick yellow border */
+}
+
+
+

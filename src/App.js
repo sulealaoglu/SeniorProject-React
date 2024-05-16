@@ -12,6 +12,12 @@ import PndoForm from "./pages/Pndo.js";
 import MoodCalendar from "./pages/MoodCalendar.js";
 import Blog from "./pages/Blog.js";
 import FirstBlog from "./pages/FirstBlog.js";
+import SecondBlog from "./pages/SecondBlog.js";
+import ThirdBlog from "./pages/ThirdBlog.js";
+import FourthBlog from "./pages/FourthBlog.js";
+import FifthBlog from './pages/FifthBLog';
+
+import SixthBlog from "./pages/SixthBlog.js";
 import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
 const NotFound = () => {
@@ -37,6 +43,12 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/FirstBlog" element={<FirstBlog />} />
+        <Route path="/SecondBlog" element={<SecondBlog />} />
+        <Route path="/ThirdBlog" element={<ThirdBlog />} />
+        <Route path="/FourthBlog" element={<FourthBlog />} />
+        <Route path="/FifthBlog" element={<FifthBlog />} />
+        <Route path="/SixthBlog" element={<SixthBlog />} />
+
         <Route path="/Admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/profile" element={
