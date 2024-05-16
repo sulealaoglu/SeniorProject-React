@@ -835,12 +835,29 @@ h1 {
 }
 .blog-container {
   position: absolute;
-  top: 50px; /* Adjust based on your layout needs */
-  left: 50px; /* Adjust based on your layout needs */
-  right: 50px; /* Adjust based on your layout needs */
-  bottom: 50px; /* Adjust based on your layout needs */
+  top: 20px; /* Adjust based on your layout needs */
+  left: 35px; /* Adjust based on your layout needs */
+  right: 35px; /* Adjust based on your layout needs */
+  bottom: 20px; /* Adjust based on your layout needs */
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
   padding: 20px;
   overflow: auto; /* Allows scrolling within the container */
-  border: 5px solid yellow; /* Thick yellow border */
+
 }
+.blog-container img {
+  width: 100%;       /* Adjusts the width to be 100% of its container */
+  height: auto;      /* Maintains the aspect ratio */
+  max-width: 800px;  /* Maximum width of the image */
+  display: block;    /* Ensures it does not inline with other elements */
+  margin: 0 auto;    /* Centers the image horizontally */
+  margin-bottom: 20px;
+}
+.blog-container p {
+  text-indent: 20px;   /* Adds an indentation to the first line of each paragraph */
+  font-family: 'Poppins', sans-serif; /* Changes the font to Arial */
+  line-height: 1.6;    /* Adjusts the line spacing for better readability */
+  font-size: 16px;     /* Sets the font size */
+  color: #333;         /* Sets the text color to a dark gray for better readability */
+  margin-bottom: 20px; /* Adds space after each paragraph */
+}
+
