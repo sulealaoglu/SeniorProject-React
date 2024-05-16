@@ -15,8 +15,7 @@ import FirstBlog from "./pages/FirstBlog.js";
 import SecondBlog from "./pages/SecondBlog.js";
 import ThirdBlog from "./pages/ThirdBlog.js";
 import FourthBlog from "./pages/FourthBlog.js";
-import FifthBlog from './pages/FifthBLog';
-
+import FifthBlog from './pages/FifthBLog.js';
 import SixthBlog from "./pages/SixthBlog.js";
 import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
@@ -42,6 +41,7 @@ function App() {
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Blog" element={<Blog />} />
+      
         <Route path="/FirstBlog" element={<FirstBlog />} />
         <Route path="/SecondBlog" element={<SecondBlog />} />
         <Route path="/ThirdBlog" element={<ThirdBlog />} />
