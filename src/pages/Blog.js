@@ -29,6 +29,7 @@ export default function Blog() {
   return (
     <div>
       <Navbar />
+      
       <div className="grid-container">
         {boxes.map((box) => (
           <NavLink to={box.link} key={box.id} className="grid-item">
