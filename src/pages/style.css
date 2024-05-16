@@ -823,16 +823,6 @@ h1 {
   max-height: 70%; /* Limit image height to allow space for text */
   object-fit: contain; /* Ensures image aspect ratio is maintained */
 }
-
-@media (max-width: 900px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* Single column for smaller screens */
-  }
-
-  .grid-item {
-    height: calc(100vh / 3 - 40px); /* Adjust height for smaller screens */
-  }
-}
 .blog-container {
   position: absolute;
   top: 20px; /* Adjust based on your layout needs */

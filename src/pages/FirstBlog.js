@@ -23,6 +23,7 @@ export default function FirstBlog() {
             Sonuç olarak, güven ve bağlanma ilişkilerimizin temel taşlarıdır. Bu kavramları anlamak ve geliştirmek, sağlıklı ve tatmin edici ilişkiler kurmamıza yardımcı olacaktır. İçsel güven ve dışsal uyum, birbirini tamamlayarak, hayatımızı daha anlamlı hale getirebilir. 
             </p>    
             </div>
+            
      
     );
 }

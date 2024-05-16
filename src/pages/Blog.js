@@ -5,11 +5,10 @@ import Navbar from "../Components/NavBar";
 
 
 export default function Blog() {
-  // Sample data for the boxes with specific links for each blog
   const boxes = [
     {
       id: 1,
-      image: "../Components/Assests/Blog/guvenblog.jpg",
+      image: "3/Components/Assests/Blog/guvenblog.jpg",
       text: "Güven Nasıl Öğrenilir? Kaygılı Bağlanma Nasıl Düzelir?",
       link: "/FirstBlog"
     },
@@ -39,5 +38,6 @@ export default function Blog() {
         ))}
       </div>
     </div>
+    
   );
 }
