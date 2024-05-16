@@ -15,8 +15,7 @@ import FirstBlog from "./pages/FirstBlog.js";
 import SecondBlog from "./pages/SecondBlog.js";
 import ThirdBlog from "./pages/ThirdBlog.js";
 import FourthBlog from "./pages/FourthBlog.js";
-import FifthBlog from './pages/FifthBLog';
-
+import FifthBlog from "./pages/FifthBLog";
 import SixthBlog from "./pages/SixthBlog.js";
 import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
@@ -48,7 +47,6 @@ function App() {
         <Route path="/FourthBlog" element={<FourthBlog />} />
         <Route path="/FifthBlog" element={<FifthBlog />} />
         <Route path="/SixthBlog" element={<SixthBlog />} />
-
         <Route path="/Admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/profile" element={
