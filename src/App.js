@@ -48,7 +48,6 @@ function App() {
         <Route path="/FourthBlog" element={<FourthBlog />} />
         <Route path="/FifthBlog" element={<FifthBlog />} />
         <Route path="/SixthBlog" element={<SixthBlog />} />
-
         <Route path="/Admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/profile" element={
