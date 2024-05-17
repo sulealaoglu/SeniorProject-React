@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Components/NavBar";
-
+import videoBg from "../Components/Assests/login.mp4";
 
 export default function Blog() {
   const boxes = [
@@ -28,7 +28,6 @@ export default function Blog() {
   return (
     <div>
       <Navbar />
-      
       <div className="grid-container">
         {boxes.map((box) => (
           <NavLink to={box.link} key={box.id} className="grid-item">

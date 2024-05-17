@@ -3,7 +3,8 @@ import "./style.css";
 import videoBg from "../Components/Assests/login.mp4";
 import { camelCase } from "lodash";
 import { useNavigate } from "react-router-dom";
-
+import UserAgreement from "../Components/UserAgreement"; 
+import OnamAgreement from "../Components/OnamAgreement"; 
 export default function Register() {
   const [apiUrl, setApiUrl] = useState("http://localhost:5285/api/account");
   const navigate = useNavigate();
@@ -235,8 +236,6 @@ export default function Register() {
                   <option value="Diğer">Diğer</option>
                 </select>
               </div>
-            </div>
-            <div className="form-column">
               <div className="form-group">
                 <label htmlFor="education_Level">
                   Eğitim gördüğünüz sınıf düzeyini:
@@ -257,6 +256,9 @@ export default function Register() {
                   <option value="6. Sınıf">6. Sınıf</option>
                 </select>
               </div>
+            </div>
+            <div className="form-column">
+              
               <div className="form-group">
                 <label htmlFor="longest_Residence">
                   En uzun süre yaşadığınız yer:
@@ -390,6 +392,11 @@ export default function Register() {
                   <option value="Evet">Evet</option>
                 </select>
               </div>
+              <div class="form-group">
+                <UserAgreement />
+                <OnamAgreement />
+              </div>
+              
               {isFormComplete() && (
                 <div className="form-group">
                   <button className="submit-button" type="submit">
@@ -400,7 +407,9 @@ export default function Register() {
             </div>
           </div>
         </form>
+        
       </div>
+   
     </>
   );
 }
