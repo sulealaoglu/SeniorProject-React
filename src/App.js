@@ -10,12 +10,12 @@ import KpsoForm from "./pages/Kpso.js";
 import TsgoForm from "./pages/Tsgo.js";
 import PndoForm from "./pages/Pndo.js";
 import MoodCalendar from "./pages/MoodCalendar.js";
-import Blog from "./pages/Blog.js";
+import Blog from "./pages/Blogs.js";
 import FirstBlog from "./pages/FirstBlog.js";
 import SecondBlog from "./pages/SecondBlog.js";
 import ThirdBlog from "./pages/ThirdBlog.js";
 import FourthBlog from "./pages/FourthBlog.js";
-import FifthBlog from './pages/FifthBLog.js';
+import FifthBlog from "./pages/FifthBLog.js";
 import SixthBlog from "./pages/SixthBlog.js";
 import Admin from "./pages/Admin.js";
 import Navbar from "./Components/NavBar.jsx";
@@ -41,7 +41,6 @@ function App() {
         <Route path="/DDVP" element={<DDVP />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Blog" element={<Blog />} />
-      
         <Route path="/FirstBlog" element={<FirstBlog />} />
         <Route path="/SecondBlog" element={<SecondBlog />} />
         <Route path="/ThirdBlog" element={<ThirdBlog />} />

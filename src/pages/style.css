@@ -823,8 +823,21 @@ h1 {
   max-height: 70%; /* Limit image height to allow space for text */
   object-fit: contain; /* Ensures image aspect ratio is maintained */
 }
+
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+
+  .grid-item {
+    height: calc(100vh / 3 - 40px); /* Adjust height for smaller screens */
+  }
+}
+
+.white-background {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+}
 .blog-container {
-  z-index: 10001;
   position: absolute;
   top: 20px; /* Adjust based on your layout needs */
   left: 35px; /* Adjust based on your layout needs */
@@ -833,38 +846,20 @@ h1 {
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
   padding: 20px;
   overflow: auto; /* Allows scrolling within the container */
-
 }
 .blog-container img {
-  width: 100%;       /* Adjusts the width to be 100% of its container */
-  height: auto;      /* Maintains the aspect ratio */
-  max-width: 800px;  /* Maximum width of the image */
-  display: block;    /* Ensures it does not inline with other elements */
-  margin: 0 auto;    /* Centers the image horizontally */
+  width: 100%; /* Adjusts the width to be 100% of its container */
+  height: auto; /* Maintains the aspect ratio */
+  max-width: 800px; /* Maximum width of the image */
+  display: block; /* Ensures it does not inline with other elements */
+  margin: 0 auto; /* Centers the image horizontally */
   margin-bottom: 20px;
 }
 .blog-container p {
-  text-indent: 20px;   /* Adds an indentation to the first line of each paragraph */
-  font-family: 'Poppins', sans-serif; /* Changes the font to Arial */
-  line-height: 1.6;    /* Adjusts the line spacing for better readability */
-  font-size: 16px;     /* Sets the font size */
-  color: #333;         /* Sets the text color to a dark gray for better readability */
+  text-indent: 20px; /* Adds an indentation to the first line of each paragraph */
+  font-family: "Poppins", sans-serif; /* Changes the font to Arial */
+  line-height: 1.6; /* Adjusts the line spacing for better readability */
+  font-size: 16px; /* Sets the font size */
+  color: #333; /* Sets the text color to a dark gray for better readability */
   margin-bottom: 20px; /* Adds space after each paragraph */
 }
-.agreement-button {
-  background-color: rgb(68, 103, 153) !important;
-  align-self: center;
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 40px;
-  color: black;
-  font-weight: 700;
-  font-size: 16px;
-  margin-top: 15px;
-  margin-left: 15px;
-  padding: 3px 3px 3px 3px;
-}
-
