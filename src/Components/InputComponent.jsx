@@ -13,7 +13,7 @@ const InputComponent = ({ onTextReceived, onSentimentResultReceived }) => {
       .post(
         "http://localhost:5285/api/paradigm",
         {
-          title: "Sınav",
+          title: "Sınav Stresi",
           content: dailyText,
         },
         { headers: { "Content-Type": "application/json" } }

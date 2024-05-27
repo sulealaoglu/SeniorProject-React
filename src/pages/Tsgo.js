@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import RadioTable from "../Components/RadioTable";
 export default function Tsgo() {
-  // Sorular listesi
   const questions = [
     "1.Hayatıma verdiğim değer arttı",
     "2.Hayatımın kıymetini anladım",
@@ -26,28 +25,29 @@ export default function Tsgo() {
     "20.İnsanların ne kadar iyi olduğu konusunda çok şey öğrendim.",
     "21.Başkalarına ihtiyacım olabileceğini öğrendim.",
   ];
-  const navigate = useNavigate();
+  const [totalScore, setTotalScore] = useState(0);
+  let dynamicName = "TSGO";
+
   const headers = ["Soru", "0", "1", "2", "3", "4", "5"];
-  // const [allAnswered, setAllAnswered] = useState(false);
   const [answers, setAnswers] = useState(Array(21).fill(-1));
   const itemsPerPage = 7;
   let totalscore = 0;
 
-  //   useEffect(() => {
-  //     // Tüm sorular yanıtlanmış mı kontrol et
-  //     const answeredCount = answers.filter(answer => answer !== null && answer >= 0 && answer <= 5).length;
-  //   const allQuestionsAnswered = answeredCount === answers.length;
-  //   setAllAnswered(allQuestionsAnswered);
-  // }, [answers]);
+  // const handleSubmit = () => {
+  //   for (let index = 0; index < answers.length; index++) {
+  //     totalscore = totalscore + answers[index];
+  //   }
+  //   const answersJson = JSON.stringify(answers);
+  //   console.log(answersJson);
+  //   console.log(totalscore);
+  //   navigate("/ddvp");
+  // };
 
-  const handleSubmit = () => {
+  const calculate = () => {
     for (let index = 0; index < answers.length; index++) {
       totalscore = totalscore + answers[index];
     }
-    const answersJson = JSON.stringify(answers);
-    console.log(answersJson);
-    console.log(totalscore);
-    navigate("/ddvp");
+    setTotalScore(totalscore);
   };
 
   return (
@@ -76,8 +76,10 @@ export default function Tsgo() {
           answers={answers} // Cevaplar
           setAnswers={setAnswers} // Cevapları güncelleme işlevi
           itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
-          onSubmit={handleSubmit}
-          // disabled={!allAnswered} // İleri butonunu devre dışı bırakma kontrolü
+          calculateScore={calculate}
+          navigatePage="/ddvp"
+          totalScore={totalScore}
+          testName={dynamicName}
         />
       </div>
     </div>

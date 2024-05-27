@@ -10,11 +10,20 @@ import neutralImage from "../Components/Assests/emotions/neutral.png";
 import sadImage from "../Components/Assests/emotions/sad.png";
 import verySadImage from "../Components/Assests/emotions/very_sad.png";
 import Navbar from "../Components/NavBar";
+import axios from "axios";
 const MoodCalendar = () => {
   const [moods, setMoods] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [dailyText, setDailyText] = useState("");
   const [videoBg, setVideoBg] = useState(summerVideo); // Default to summer.mp4
+
+  useEffect(() => {
+    // Fetch clients assigned to admin
+    fetch("/api/clients")
+      .then((response) => response.json())
+      .then((data) => setClients(data));
+  }, []);
 
   const handleDayClick = (day) => {
     setSelectedDay(moment(currentDate).date(day).toDate());
@@ -22,7 +31,6 @@ const MoodCalendar = () => {
 
   const handleMoodClick = (mood) => {
     setMoods({ ...moods, [selectedDay]: mood });
-    setSelectedDay(null);
   };
 
   const moodOptions = [
@@ -95,6 +103,30 @@ const MoodCalendar = () => {
   const prevMonth = () => {
     setCurrentDate(moment(currentDate).subtract(1, "months").toDate());
   };
+  const handleInputChange = (event) => {
+    setDailyText(event.target.value);
+  };
+
+  const handleSave = () => {
+    setCurrentDate(moment(currentDate).add(1, "months").toDate());
+    axios
+      .post(
+        "http://localhost:5285/api/paradigm",
+        {
+          date: currentDate,
+          mood: moods[selectedDay],
+          content: dailyText,
+        },
+        { headers: { "Content-Type": "application/json" } }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    setSelectedDay(null);
+  };
 
   return (
     <div>
@@ -161,8 +193,12 @@ const MoodCalendar = () => {
                 type="text"
                 className="mood-text-input"
                 placeholder="Bugün için notunuzu giriniz."
+                value={dailyText}
+                onChange={handleInputChange}
               />
-              <button className="save-button">Save</button>
+              <button onClick={handleSave()} className="save-button">
+                Save
+              </button>
             </div>
           )}
         </div>

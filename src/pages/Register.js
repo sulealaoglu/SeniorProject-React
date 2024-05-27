@@ -3,8 +3,8 @@ import "./style.css";
 import videoBg from "../Components/Assests/login.mp4";
 import { camelCase } from "lodash";
 import { useNavigate } from "react-router-dom";
-import UserAgreement from "../Components/UserAgreement"; 
-import OnamAgreement from "../Components/OnamAgreement"; 
+import UserAgreement from "../Components/UserAgreement";
+import OnamAgreement from "../Components/OnamAgreement";
 export default function Register() {
   const [apiUrl, setApiUrl] = useState("http://localhost:5285/api/account");
   const navigate = useNavigate();
@@ -54,6 +54,7 @@ export default function Register() {
         if (xhr.status === 200) {
           const data = JSON.parse(xhr.responseText);
           console.log(data);
+          localStorage.setItem("userData", data);
           if (data.progressLevel === 1 || data.progressLevel === 4)
             navigate("/pndo");
           else navigate("/ddvp");
@@ -258,7 +259,6 @@ export default function Register() {
               </div>
             </div>
             <div className="form-column">
-              
               <div className="form-group">
                 <label htmlFor="longest_Residence">
                   En uzun süre yaşadığınız yer:
@@ -396,7 +396,7 @@ export default function Register() {
                 <UserAgreement />
                 <OnamAgreement />
               </div>
-              
+
               {isFormComplete() && (
                 <div className="form-group">
                   <button className="submit-button" type="submit">
@@ -407,9 +407,7 @@ export default function Register() {
             </div>
           </div>
         </form>
-        
       </div>
-   
     </>
   );
 }

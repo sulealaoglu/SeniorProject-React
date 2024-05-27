@@ -6,7 +6,7 @@ import secPhoto from "../Components/Assests/blogs/header/basarisizlik.png";
 import thirdPhoto from "../Components/Assests/blogs/header/caresizlik.png";
 import fourthPhoto from "../Components/Assests/blogs/header/melankoli.png";
 import fifthPhoto from "../Components/Assests/blogs/header/mukemmelliyetci.png";
-import sixthPhoto from "../Components/Assests/blogs/header/mukemmelliyetci.png";
+import sixthPhoto from "../Components/Assests/blogs/header/yetersiz.png";
 export default function Blog() {
   const boxes = [
     {
@@ -66,7 +66,7 @@ export default function Blog() {
             <img
               src={box.image}
               alt={box.text}
-              style={{ width: "150px", height: "150px" }}
+              style={{ width: "350px", height: "350px" }}
             />
             <div>
               <Link to={box.link}>{box.text}</Link>

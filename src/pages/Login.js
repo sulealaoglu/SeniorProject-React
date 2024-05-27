@@ -62,6 +62,7 @@ export default function Login() {
         if (xhr.status === 200) {
           const data = JSON.parse(xhr.responseText);
           setUserData(data);
+          localStorage.setItem("userData", userData);
           console.log(userData);
           if (userData.progressLevel === 1 || userData.progressLevel === 4)
             navigate("/pndoform");

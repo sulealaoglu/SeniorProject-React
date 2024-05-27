@@ -41,7 +41,10 @@ export default function Daso() {
   let stres;
   let depression;
   let anxiety;
-  const handleSubmit = () => {
+  const [totalScore, setTotalScore] = useState(0);
+  let testName = "DASO";
+
+  const calculate = () => {
     stres =
       answers[0] +
       answers[5] +
@@ -66,13 +69,13 @@ export default function Daso() {
       answers[14] +
       answers[18] +
       answers[19];
-    console.log(answers);
-    const answersJson = JSON.stringify(answers);
-    console.log("stres" + stres);
-    console.log("depresyon" + depression);
-    console.log("anksiyete" + anxiety);
-    console.log(answersJson);
-    navigate("/kpso");
+    // console.log(answers);
+    // const answersJson = JSON.stringify(answers);
+    // console.log("stres" + stres);
+    // console.log("depresyon" + depression);
+    // console.log("anksiyete" + anxiety);
+    // console.log(answersJson);
+    // navigate("/kpso");
   };
 
   return (
@@ -83,7 +86,10 @@ export default function Daso() {
         answers={answers} // Cevaplar
         setAnswers={setAnswers} // Cevapları güncelleme işlevi
         itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
-        onSubmit={handleSubmit}
+        calculateScore={calculate}
+        navigatePage="/tsgo"
+        totalScore={totalScore}
+        testName={testName}
       />
     </div>
   );

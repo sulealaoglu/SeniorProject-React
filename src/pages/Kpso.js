@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import RadioTable from "../Components/RadioTable";
+import axios from "axios";
 export default function Kpso() {
   const questions = [
     "Sıkıntılı Zamanlardan sonra kendimi çabucak toparlayabilirim.",
@@ -12,33 +13,65 @@ export default function Kpso() {
     "Hayatımdaki olumsuzlukların etkisinden kurtulmam uzun zaman alır.",
   ];
   const headers = ["Soru", "Hiç", "Çok az", "Orta düzeyde", "Sıklıkla", "Çok"];
-  const navigate = useNavigate();
   const [answers, setAnswers] = useState(Array(6).fill(-1));
   const itemsPerPage = 6;
-  let totalscore = 0;
+  const [totalScore, setTotalScore] = useState(0);
+  const [testName, setTestName] = useState("KPSO");
 
-  const answersAsJson = () => {
-    let answersJson = { title: "KPSO", answers: [] };
-    answers.forEach((answer, index) => {
-      answersJson.answers.push({ [index + 1]: answer.toString() });
-    });
-    answersJson = JSON.stringify(answersJson);
-    return answersJson;
-  };
-
-  const handleSubmit = () => {
-    totalscore =
+  // const answersAsJson = () => {
+  //   let answersJson = {
+  //     name: "KPSO",
+  //     mail: localStorage.getItem("username"),
+  //     answers: [],
+  //   };
+  //   answers.forEach((answer, index) => {
+  //     answersJson.answers.push({
+  //       question: [index + 1],
+  //       answer: answer.toString(),
+  //     });
+  //   });
+  //   answersJson = JSON.stringify(answersJson);
+  //   return answersJson;
+  // };
+  const calculate = () => {
+    let totalscore =
       answers[0] -
       answers[1] +
       answers[2] -
       answers[3] +
       answers[4] -
       answers[5];
-
-    console.log(answersAsJson());
-    console.log("total score" + totalscore);
-    navigate("/tsgo");
+    setTotalScore(totalscore);
   };
+
+  // const handleSubmit = () => {
+  //   totalscore =
+  //     answers[0] -
+  //     answers[1] +
+  //     answers[2] -
+  //     answers[3] +
+  //     answers[4] -
+  //     answers[5];
+
+  //   const body = console.log(answersAsJson());
+  //   console.log("total score" + totalscore);
+  //   axios
+  //     .post(
+  //       "http://localhost:5285/api/test/solve",
+  //       {
+  //         body,
+  //       },
+  //       { headers: { "Content-Type": "application/json" } }
+  //     )
+  //     .then((response) => {
+  //       // onSentimentResultReceived(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+
+  //   navigate("/tsgo");
+  // };
 
   return (
     <div className="bg-test">
@@ -49,7 +82,10 @@ export default function Kpso() {
           answers={answers} // Cevaplar
           setAnswers={setAnswers} // Cevapları güncelleme işlevi
           itemPerPage={itemsPerPage} // Her sayfada gösterilecek soru sayısı
-          onSubmit={handleSubmit}
+          calculateScore={calculate}
+          navigatePage="/tsgo"
+          totalScore={totalScore}
+          testName={testName}
         />
       </div>
     </div>
