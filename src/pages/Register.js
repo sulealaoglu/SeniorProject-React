@@ -12,7 +12,7 @@ export default function Register() {
     /* user_Name: "",
     user_Surname: "", */
     email: "",
-    cell_Phone: "",
+    // cell_Phone: "",
     password: "",
     age: 0,
     gender: "",
@@ -144,7 +144,7 @@ export default function Register() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="cell_Phone">Telefon Numarası:</label>
                 <input
                   type="number"
@@ -153,7 +153,7 @@ export default function Register() {
                   value={formData.cell_Phone}
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
               <div className="form-group">
                 <label htmlFor="password">Şifre:</label>
                 <input
@@ -257,8 +257,7 @@ export default function Register() {
                   <option value="6. Sınıf">6. Sınıf</option>
                 </select>
               </div>
-            </div>
-            <div className="form-column">
+
               <div className="form-group">
                 <label htmlFor="longest_Residence">
                   En uzun süre yaşadığınız yer:
@@ -276,6 +275,8 @@ export default function Register() {
                   <option value="Büyükşehir">Büyükşehir</option>
                 </select>
               </div>
+            </div>
+            <div className="form-column">
               <div className="form-group">
                 <label htmlFor="monthly_Income">
                   AYLIK (bireysel) gelir düzeyiniz:
