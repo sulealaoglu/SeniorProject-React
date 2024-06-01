@@ -9,8 +9,8 @@ export default function Register() {
   const [apiUrl, setApiUrl] = useState("http://localhost:5285/api/account");
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    user_Name: "",
-    user_Surname: "",
+    /* user_Name: "",
+    user_Surname: "", */
     email: "",
     cell_Phone: "",
     password: "",
@@ -114,7 +114,7 @@ export default function Register() {
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-container">
             <div className="form-column">
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="user_Name">Adınız:</label>
                 <input
                   type="text"
@@ -133,7 +133,7 @@ export default function Register() {
                   value={formData.user_Surname}
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
               <div className="form-group">
                 <label htmlFor="email">Mail Adresi:</label>
                 <input

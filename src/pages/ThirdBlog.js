@@ -28,6 +28,7 @@ Ayrıca, SMART yöntemiyle hedefler belirleyerek adım adım ilerlemek ve kontro
 <p>
 Sonuç olarak, öğrenilmiş çaresizlik, kişinin yaşadığı olumsuz deneyimler sonucunda kontrolünü kaybetmesine neden olabilir. Ancak, bu durumun üstesinden gelmek mümkündür. İyimser bir bakış açısı geliştirme, bilişsel tekniklerle düşünceleri organize etme ve SMART hedefleri belirleme gibi yöntemler, kişinin öğrenilmiş çaresizlik duygusunu azaltmasına ve yaşam kalitesini artırmasına yardımcı olabilir.
 </p>
+<h3>https://www.hiwellapp.com/blog/ogrenilmis-caresizlik</h3>
         </div>
     );
 }

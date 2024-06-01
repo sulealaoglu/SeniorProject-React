@@ -29,6 +29,7 @@ export default function FifthBlog() {
             <p>
             Mükemmeliyetçilik, hayatın birçok alanında karşımıza çıkan ancak çoğu zaman farkında olmadığımız bir durumdur. Ancak bu durum, kişinin yaşamını olumsuz yönde etkileyebilir ve psikolojik sorunlara yol açabilir. Bu nedenle, mükemmeliyetçilikle başa çıkmak ve sağlıklı bir yaşam sürmek için bilinçli bir çaba gereklidir.
             </p>
+            <h3>https://www.hiwellapp.com/blog/mukemmelliyetcilik</h3>
         </div>
     );
 }

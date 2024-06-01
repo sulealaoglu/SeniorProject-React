@@ -25,7 +25,8 @@ Bu süreçte, kendimize şefkatli ve anlayışlı yaklaşmak da kritiktir. Yeter
 </p>
 <p>
 Sonuç olarak, yetersizlik hissiyle başa çıkmak karmaşık bir süreç olabilir ancak bu duyguyu anlamak ve ele almak mümkündür. Kişinin kendini tanıması, iç dünyasını gözlemlemesi ve uygun stratejileri kullanması bu sürecin önemli bir parçasıdır. Profesyonel destek almak da gerektiğinde bu süreci destekleyebilir ve kolaylaştırabilir.
-</p>         
+</p>   
+<h3>https://www.hiwellapp.com/blog/yetersizlik-hissi</h3>      
         </div>
     );
 }

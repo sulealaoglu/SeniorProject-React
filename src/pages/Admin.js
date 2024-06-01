@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/NavBar";
 import videoBg from "../Components/Assests/login.mp4";
+import AdminTable from "../Components/AdminTable";
+import axios from "axios";
 const AdminPage = () => {
   const [clients, setClients] = useState([]);
   const [selectedClient, setSelectedClient] = useState("");
   const [searchId, setSearchId] = useState("");
   const [data, setData] = useState([]);
   const [option, setOption] = useState("A");
+  const [showTable, setShowTable] = useState(false);
   const [isButtonPressed, setisButtonPressed] = useState(false);
 
   useEffect(() => {
@@ -32,6 +35,8 @@ const AdminPage = () => {
   const handleOptionChange = (option) => {
     setOption(option);
     setisButtonPressed(true);
+    // 'A', 'B', 'C', 'D' seçeneklerinde tablo göster
+    setShowTable(["A", "B", "C", "D"].includes(option)); // Bu satırı değiştirdim
     fetchClientData(selectedClient || searchId, option);
   };
 
@@ -81,11 +86,28 @@ const AdminPage = () => {
             <button onClick={() => handleOptionChange("C")}>Daso Ölçeği</button>
             <button onClick={() => handleOptionChange("D")}>Tsgo Ölçeği</button>
             <button onClick={() => handleOptionChange("E")}>DDVP Sonuç</button>
-            <button onClick={() => handleOptionChange("F")}>
-              Hasta Profili
-            </button>
+            <button onClick={() => handleOptionChange("F")}> Hasta Profili</button>
           </div>
-          {isButtonPressed && (
+          {showTable && option == "A" && (
+            
+         
+            <AdminTable
+              headers = {["Soru", "Hiç", "Çok az", "Orta düzeyde", "Sıklıkla", "Çok"]}
+              questions = {[
+                "Sıkıntılı Zamanlardan sonra kendimi çabucak toparlayabilirim.",
+                "Stresli olayların üstesinden gelmekte güçlük çekerim.",
+                "Stresli durumlardan sonra kendime gelmem uzun zaman almaz.",
+                "Kötü bir şeyler olduğunda bunu atlatmak benim için zordur.",
+                "Zor zamanları çok az sıkıntıyla atlatırım.",
+                "Hayatımdaki olumsuzlukların etkisinden kurtulmam uzun zaman alır.",
+              ]}
+              answers={data.map(row => row.answer)}
+              itemPerPage={10}
+              testName={"Kpso Ölçeği"}
+            />
+            
+          )}
+          {/* {isButtonPressed && (
             <div className="data-table">
               <table>
                 <thead>
@@ -108,7 +130,8 @@ const AdminPage = () => {
                 </tbody>
               </table>
             </div>
-          )}
+          )} */}
+
         </div>
       </div>
     </div>

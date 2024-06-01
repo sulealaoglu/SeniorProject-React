@@ -26,6 +26,7 @@ Dertleşmek, mutsuzluğu azaltmanın başka bir yoludur. Bir arkadaş veya aile 
 <p>
 Son olarak, pozitif düşünme alışkanlığı kazanmak da mutsuzluğu yönetmede etkilidir. Olumsuz düşünceler yerine pozitif düşünceler geliştirmek, insanın ruh halini olumlu yönde etkileyebilir. Tüm bu stratejiler, mutsuzluğun etkilerini azaltmaya ve insanın yaşam kalitesini artırmaya yardımcı olabilir.
 </p>
+<h3>https://www.hiwellapp.com/blog/melankoli-ve-mutsuzluk</h3>
         </div>
     );
 }

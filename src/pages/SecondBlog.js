@@ -24,6 +24,7 @@ Başarısızlık korkusunun belirtileri arasında sürekli bir kaygı hali, mük
 <p>
 Başarısızlık korkusunu yenmek için birkaç strateji uygulanabilir. Öncelikle, korkunun kökenlerini anlamak ve nedenlerini belirlemek önemlidir. Olumlu inançları güçlendirmek, küçük hedefler belirleyerek başlamak, hatalardan öğrenmek, farkındalık ve rahatlama tekniklerini uygulamak ve destek almak bu süreçte yardımcı olabilir. Başarısızlık korkusunu yenmek zaman alabilir ve sabır gerektirebilir, ancak her adım kişisel gelişime katkı sağlayabilir ve daha sağlıklı bir yaşam tarzı benimsemeye yardımcı olabilir.
 </p>
+<h3>https://www.hiwellapp.com/blog/basarisizlik-korkusu</h3>
         </div>
     );
 }

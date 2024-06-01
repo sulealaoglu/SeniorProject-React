@@ -4,7 +4,7 @@ import videoBg from "../Components/Assests/login.mp4";
 import Navbar from "../Components/NavBar";
 export default function PrivateRoute({ children }) {
   const [formData, setFormData] = useState({
-    userName: "",
+    // userName: "",
     email: "",
     cellphone: "",
     userPassword: "",
@@ -23,7 +23,7 @@ export default function PrivateRoute({ children }) {
     psychologicalCondition: "",
     medicationForPsychologicalCondition: "",
     receivingPsychologicalTreatment: "",
-    profilePhoto: null,
+    // profilePhoto: null,
   });
   useEffect(() => {
     // Retrieve the username and password from local storage
@@ -45,14 +45,14 @@ export default function PrivateRoute({ children }) {
     }));
   };
 
-  const handleProfilePhotoChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prevState) => ({
-        ...prevState,
-        profilePhoto: URL.createObjectURL(e.target.files[0]),
-      }));
-    }
-  };
+  // const handleProfilePhotoChange = (e) => {
+  //   if (e.target.files && e.target.files[0]) {
+  //     setFormData((prevState) => ({
+  //       ...prevState,
+  //       profilePhoto: URL.createObjectURL(e.target.files[0]),
+  //     }));
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ export default function PrivateRoute({ children }) {
           <div className="form-container">
             <div className="form-column">
               {/* Profile Photo Upload */}
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label>Profile Photo:</label>
                 <div className="profile-photo-container">
                   <input
@@ -91,8 +91,8 @@ export default function PrivateRoute({ children }) {
                     </div>
                   </label>
                 </div>
-              </div>
-              <div className="form-group">
+              </div> */}
+             {/*  <div className="form-group">
                 <label htmlFor="userName">Kullanıcı Adı:</label>
                 <input
                   type="text"
@@ -101,7 +101,7 @@ export default function PrivateRoute({ children }) {
                   value={formData.userName}
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="cellphone">Telefon Numarası:</label>
@@ -201,8 +201,6 @@ export default function PrivateRoute({ children }) {
                   <option value="Diğer">Diğer</option>
                 </select>
               </div>
-            </div>
-            <div className="form-column">
               <div className="form-group">
                 <label htmlFor="educationLevel">
                   Eğitim gördüğünüz sınıf düzeyini:
@@ -240,6 +238,9 @@ export default function PrivateRoute({ children }) {
                   <option value="Büyükşehir">Büyükşehir</option>
                 </select>
               </div>
+            </div>
+            <div className="form-column">
+              
               <div className="form-group">
                 <label htmlFor="monthlyIncome">
                   AYLIK (bireysel) gelir düzeyiniz:

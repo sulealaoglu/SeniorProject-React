@@ -6,6 +6,7 @@ export default function FirstBlog() {
     
             <div className="blog-container">
                 <h1>Güven Nasıl Öğrenilir? Kaygılı Bağlanma Nasıl Düzelir?</h1>
+               
             <p>
             İnsan ilişkilerinde güven ve bağlanma kavramları, hayati öneme sahiptir. Bu kavramlar, bir bireyin kendini başka birine güvenle bağlayabilmesi, duygusal sağlamlık kazanabilmesi ve sağlıklı ilişkiler kurabilmesi için gereklidir. Peki, güven ve bağlanma nasıl gelişir ve neden bazılarımız için daha zor olabilir?
             </p>
@@ -21,7 +22,8 @@ export default function FirstBlog() {
             </p>
             <p>
             Sonuç olarak, güven ve bağlanma ilişkilerimizin temel taşlarıdır. Bu kavramları anlamak ve geliştirmek, sağlıklı ve tatmin edici ilişkiler kurmamıza yardımcı olacaktır. İçsel güven ve dışsal uyum, birbirini tamamlayarak, hayatımızı daha anlamlı hale getirebilir. 
-            </p>    
+            </p>  
+            <h3>https://www.hiwellapp.com/blog/guven-nasil-ogrenilir</h3>  
             </div>
             
      
