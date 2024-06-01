@@ -18,12 +18,6 @@ const MoodCalendar = () => {
   const [dailyText, setDailyText] = useState("");
   const [videoBg, setVideoBg] = useState(summerVideo); // Default to summer.mp4
 
-  // useEffect(() => {
-  //   // Fetch clients assigned to admin
-  //   fetch("/api/clients")
-  //     .then((response) => response.json())
-  //     .then((data) => setClients(data));
-  // }, []);
 
   const handleDayClick = (day) => {
     setSelectedDay(moment(currentDate).date(day).toDate());
