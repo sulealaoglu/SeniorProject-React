@@ -18,15 +18,17 @@ const MoodCalendar = () => {
   const [dailyText, setDailyText] = useState("");
   const [videoBg, setVideoBg] = useState(summerVideo); // Default to summer.mp4
 
-  useEffect(() => {
-    // Fetch clients assigned to admin
-    fetch("/api/clients")
-      .then((response) => response.json())
-      .then((data) => setClients(data));
-  }, []);
+  // useEffect(() => {
+  //   // Fetch clients assigned to admin
+  //   fetch("/api/clients")
+  //     .then((response) => response.json())
+  //     .then((data) => setClients(data));
+  // }, []);
 
   const handleDayClick = (day) => {
     setSelectedDay(moment(currentDate).date(day).toDate());
+    setCurrentDate(moment(currentDate).add(1, "months").toDate());
+    setSelectedDay(null);
   };
 
   const handleMoodClick = (mood) => {
@@ -109,22 +111,22 @@ const MoodCalendar = () => {
 
   const handleSave = () => {
     setCurrentDate(moment(currentDate).add(1, "months").toDate());
-    axios
-      .post(
-        "http://localhost:5285/api/paradigm",
-        {
-          date: currentDate,
-          mood: moods[selectedDay],
-          content: dailyText,
-        },
-        { headers: { "Content-Type": "application/json" } }
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // axios
+    //   .post(
+    //     "http://localhost:5285/api/paradigm",
+    //     {
+    //       date: currentDate,
+    //       mood: moods[selectedDay],
+    //       content: dailyText,
+    //     },
+    //     { headers: { "Content-Type": "application/json" } }
+    //   )
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
     setSelectedDay(null);
   };
 
