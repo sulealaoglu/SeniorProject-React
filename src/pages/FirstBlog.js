@@ -1,7 +1,8 @@
-import React from 'react';
-import './style.css';
-import blogPhoto from '../Components/Assests/blogs/guven.png';
+import React from "react";
+import "./style.css";
+import blogPhoto from "../Components/Assests/blogs/guven.png";
 export default function FirstBlog() {
+
     return (
     
             <div className="blog-container">
@@ -27,5 +28,4 @@ export default function FirstBlog() {
             </div>
             
      
-    );
-}
+    )
