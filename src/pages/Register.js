@@ -52,12 +52,11 @@ export default function Register() {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          const data = JSON.parse(xhr.responseText);
-          console.log(data);
-          localStorage.setItem("userData", data);
-          if (data.progressLevel === 1 || data.progressLevel === 4)
-            navigate("/pndo");
-          else navigate("/ddvp");
+          localStorage.setItem("userMail", formData.email);
+          navigate("/");
+          // if (data.progressLevel === 1 || data.progressLevel === 4)
+          //   navigate("/login");
+          // else navigate("/ddvp");
         } else {
           console.error("Error fetching user data:", xhr.statusText);
         }

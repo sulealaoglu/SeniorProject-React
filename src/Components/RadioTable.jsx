@@ -24,7 +24,7 @@ const RadioTable = ({
         "http://localhost:5285/api/test/create",
         {
           name: testName,
-          mail: userData.userName,
+          mail: localStorage.getItem("username"),
         },
         { headers: { "Content-Type": "application/json" } }
       )

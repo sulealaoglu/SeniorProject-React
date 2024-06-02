@@ -8,23 +8,22 @@ const InputComponent = ({ onTextReceived, onSentimentResultReceived }) => {
     setDailyText(event.target.value);
   };
 
-  const handleSubmit = () => {
-    axios
-      .post(
-        "http://localhost:5285/api/paradigm",
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "http://127.0.0.1:5000/sentiment",
+        dailyText,
         {
-          title: "Sınav Stresi",
-          content: dailyText,
-        },
-        { headers: { "Content-Type": "application/json" } }
-      )
-      .then((response) => {
-        onSentimentResultReceived(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    onTextReceived(dailyText);
+          headers: {
+            "Content-Type": "text/plain",
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error sending the POST request", error);
+    }
   };
 
   return (

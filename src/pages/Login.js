@@ -21,12 +21,7 @@ export default function Login() {
   const { user, setUser } = useAuth;
 
   const [userData, setUserData] = useState({
-    userName: "",
     email: "",
-    cellPhone: "",
-    userPassword: "",
-    firstName: "",
-    lastName: "",
     gender: "",
     age: 0,
     major: "",
@@ -35,7 +30,7 @@ export default function Login() {
     income: 0,
     hasSickness: "",
     isUsingMedicine: "",
-    progressLevel: "",
+    progress_Level: "",
   });
   const navigate = useNavigate();
 
@@ -62,10 +57,10 @@ export default function Login() {
         if (xhr.status === 200) {
           const data = JSON.parse(xhr.responseText);
           setUserData(data);
-          localStorage.setItem("userData", userData);
+          localStorage.setItem("userEmail", data.email);
           console.log(userData);
-          if (userData.progressLevel === 1 || userData.progressLevel === 4)
-            navigate("/pndoform");
+          if (data.progressLevel === 1 || data.progressLevel === 4)
+            navigate("/pndo");
           else navigate("/ddvp");
         } else {
           console.error("Error fetching user data:", xhr.statusText);
