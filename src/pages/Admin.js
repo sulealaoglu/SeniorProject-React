@@ -3,6 +3,7 @@ import Navbar from "../Components/NavBar";
 import videoBg from "../Components/Assests/login.mp4";
 import AdminTable from "../Components/AdminTable";
 import axios from "axios";
+import AdminInput from "../Components/AdminInput";
 const AdminPage = () => {
   const [clients, setClients] = useState([]);
   const [selectedClient, setSelectedClient] = useState("");
@@ -504,6 +505,14 @@ const AdminPage = () => {
           </>
             
           )} 
+               {showTable && option == "E" && (
+               
+                  <AdminInput
+                  
+        />
+           
+            
+          )}
         </div>
         
       </div>
