@@ -3,14 +3,7 @@ import videoBg from "../Components/Assests/2.jpg";
 import backgroundImage from "../Components/Assests/3.jpg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const AdminTable = ({
-  headers,
-  questions,
-  answers,
-  itemPerPage,
-  testName,
-}) => {
- 
+const AdminTable = ({ headers, questions, answers, itemPerPage, testName }) => {
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,7 +25,6 @@ const AdminTable = ({
 
   const currentQuestions = questions.slice(startIndex, endIndex);
 
-
   return (
     <div>
       <table className="table">
@@ -51,9 +43,25 @@ const AdminTable = ({
                 <td key={headerIndex}>
                   <input
                     type="radio"
-                    value={headerIndex + 1}
-                    checked={answers[startIndex + index] === headerIndex + 1}
-                
+                    value={
+                      index % 5 === 1
+                        ? 4
+                        : index % 5 === 2
+                        ? 5
+                        : index % 5 === 3
+                        ? 2
+                        : index % 5 === 4
+                        ? 1
+                        : 5
+                    }
+                    checked={
+                      (index % 5 === 1 && headerIndex + 1 === 4) ||
+                      (index % 5 === 2 && headerIndex + 1 === 5) ||
+                      (index % 5 === 3 && headerIndex + 1 === 2) ||
+                      (index % 5 === 4 && headerIndex + 1 === 1) ||
+                      (index % 5 === 0 && headerIndex + 1 === 5)
+                    }
+                    readOnly
                   />
                 </td>
               ))}
@@ -62,15 +70,17 @@ const AdminTable = ({
         </tbody>
       </table>
       <div>
-        <button onClick={onPrevPage} disabled={isSinglePage} >
+        <button onClick={onPrevPage} disabled={isSinglePage}>
           Geri
         </button>
         <button
           onClick={onNextPage}
           disabled={
-            endIndex >= questions.length || endIndex === 0 || isSinglePage }  
-        >İleri </button>
-        
+            endIndex >= questions.length || endIndex === 0 || isSinglePage
+          }
+        >
+          İleri{" "}
+        </button>
       </div>
     </div>
   );
