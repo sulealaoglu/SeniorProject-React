@@ -62,17 +62,14 @@ const AdminTable = ({
         </tbody>
       </table>
       <div>
-        <button onClick={onPrevPage} disabled={isSinglePage}>
+        <button onClick={onPrevPage} disabled={isSinglePage} >
           Geri
         </button>
         <button
           onClick={onNextPage}
           disabled={
-            endIndex >= questions.length || endIndex === 0 || isSinglePage
-          }
-        >
-          İleri
-        </button>
+            endIndex >= questions.length || endIndex === 0 || isSinglePage }  
+        >İleri </button>
         
       </div>
     </div>
