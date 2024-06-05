@@ -69,7 +69,7 @@ const AdminTable = ({ headers, questions, answers, itemPerPage, testName }) => {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className="search-box">
         <button onClick={onPrevPage} disabled={isSinglePage}>
           Geri
         </button>

@@ -7,8 +7,8 @@ const AdminInput = ({ onTextReceived, onSentimentResultReceived }) => {
 
   const [texts, setTexts] = useState({
     1: "Sınav stresi beni mahvediyor. Her defasında sanki dünyanın en kötü şeyini yapmam gerekiyormuş gibi hissediyorum. Uykusuz kalıyor, sürekli endişe ve panik içinde yaşıyorum. Bu stres beni motive etmiyor, aksine tam tersi, ders çalışma isteğimi bile elimden alıyor. Her sınav yaklaştığında içimdeki kaygı ve korku artıyor, bu durumun beni nasıl etkileyeceğini düşündükçe içim daralıyor.",
-    2: "Sınav stresi hayatımı mahvediyor. Sürekli endişe içinde ve motivasyonsuz hissediyorum. Bu stres beni boğuyor, ders çalışma isteğimi bile elimden alıyor. Başa çıkmak gerçekten zor.",
-    3: "Sınav stresi bazen zorlayıcı olsa da, her sınav benim için bir fırsat. Bu stresi yönetmek için çalışıyor ve her gün güçleniyorum. Başarılı olacağım ve bu stresi aşacağım!"
+    2: "Sürekli endişe içinde ve motivasyonsuz hissediyorum. Bu stres beni boğuyor, ders çalışma isteğimi bile elimden alıyor. Başa çıkmak gerçekten zor.",
+    3: "Sınav stresi bana işkence gibi geliyor. Başlamadan önce midem bulanıyor, soruları görünce beynim donup kalıyor. Sonuç? Fiasko."
   });
  
 
@@ -27,6 +27,7 @@ const AdminInput = ({ onTextReceived, onSentimentResultReceived }) => {
   return (
     <div className="wrapper-ddvp">
       <h3>{`Gün ${activeDay}: Sınav stresi hakkındaki düşüncelerinizi yazınız.`}</h3>
+      <h5>Negative</h5>
       <br />
       <input
         type="text"

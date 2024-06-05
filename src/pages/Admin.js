@@ -26,10 +26,15 @@ const AdminPage = () => {
       .then((response) => response.json())
       .then((data) => setClients(data));
   }, []);
-
+  useEffect(() => {
+    // Simulate fetching clients with an API call
+    setClients([
+      { id: 'gizem', name: 'Gizem Sağdıç' },
+      // More clients can be added here
+    ]);
+  }, []);
   const handleClientChange = (event) => {
     setSelectedClient(event.target.value);
-    fetchClientData(event.target.value, option);
   };
 
   const handleSearchChange = (event) => {
@@ -74,7 +79,6 @@ const AdminPage = () => {
                 onChange={handleClientChange}
               >
                 <option value="">-- Danışan Seçiniz --</option>
-                <option value="">-- Gizem Sağdıç --</option>
                 {clients.map((client) => (
                   <option key={client.id} value={client.id}>
                     {client.name}
