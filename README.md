@@ -9,6 +9,9 @@
 
 ![image](https://github.com/sulealaoglu/SeniorProject-React/assets/74409269/d23d09ff-995d-4d0d-bb87-be0872736ae0)
 
+![image](https://github.com/sulealaoglu/SeniorProject-React/assets/74409269/3589594f-2f1b-4c55-8c53-911c6f8d7b1e)
+
+
 Demo Video:
 
 
